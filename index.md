@@ -14,17 +14,17 @@ info:
  course_number: CPP 528 
  course_level: Graduate 
  course_website: 'https://canvas.asu.edu/courses/70101/'
- course_start_end_dates: October 12 to December 4, 2020
+ course_start_end_dates: March to May, 2021
  course_prerequisites:  
  class_meets_when:  Asynchronous  
  class_meets_where:  'https://asu.zoom.us/meeting/557182841'
  review_sessions_when: TBD 
  review_sessions_where: Zoom
- discussion_board_url: 'https://ds4ps.org/cpp-528-fall-2020/help/'
+ discussion_board_url: 'https://ds4ps.org/cpp-528-fall-2021/help/'
 
 instructor:
 -  name: Cristian E. Nuno
-   title: Data Analyst / Faculty Associate
+   title: Manager of Data Engineering / Faculty Associate
    email: cenuno@asu.edu   
    office_location: virtual
    website_url: 
@@ -83,7 +83,6 @@ This course builds upon basic R programming material from Data Science I (CPP 52
 Assessment of student performance in this course is based on indications that the course learning objectives stated above have been achieved.  Several areas of measurement will be used to produce a final student performance rating.  These areas of performance assessment include the following:
 
 * Building a research database by combining several data sources. 
-* Creating meaningful and reliable metrics from administrative data. 
 * Perform descriptive analysis. 
 * Use regression to make inferences about programs. 
 * Manage a project using versioning. 
@@ -217,19 +216,13 @@ Use the **Schedule** tab on the navigation bar for detailed information each wee
 ## Couse Schedule
 
 
-### Unit 1: Project Management Frameworks 
-
-### Unit 2: Neighborhood Health 
- 
-### Unit 3: Neighborhood Change 
-
-### Unit 4: Predicting Change  
-
-### Unit 5: Federal Tax P 
-
-### Unit 6: Impact Analysis  
-
-### Unit 7: Customized Reports in RMD 
+* Week 01: Introduction to project management
+* Week 02: Introduction to data management
+* Week 03: Descriptive analysis of neighborhood change
+* Week 04: Predicting median home value change, 2000 to 2010
+* Week 05: Adding federal program data to your predictive models
+* Week 06: Add reproducible work-flow via [`drake`](https://books.ropensci.org/drake/) package
+* Week 07: Finalize project website and project requirements
 
 
 
