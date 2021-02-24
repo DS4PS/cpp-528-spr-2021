@@ -15,4 +15,3 @@ Welcome to CPP 528! To update the course website to reflect the current semester
     + update the `github_info` section:
         + specifically the `website-repo` and `course-repo`
             + i.e. from `...-fall-2020` to `...-spr-2021`
-            

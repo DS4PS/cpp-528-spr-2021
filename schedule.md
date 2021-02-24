@@ -3,31 +3,30 @@ layout: default
 title: Schedule
 
 canvas: 
-  assignment_url: 'https://canvas.asu.edu/courses/70101/assignments'
+  assignment_url: 'https://canvas.asu.edu/courses/82561/assignments'
   
-yellowdig_url: 'https://canvas.asu.edu/courses/70101/assignments/1721192'
+yellowdig_url: 'https://canvas.asu.edu/courses/82561/assignments/2072813'
 
 yellowdig: 
-  post-01: 'Friday, October 16th'
-  post-02: 'Friday, October 23rd'
-  post-03: 'Friday, October 30th'
-  post-04: 'Friday, November 6th' 
-  post-05: 'Friday, November 13th' 
-  post-06: 'Friday, November 20th' 
-  post-07: 'Friday, November 27th' 
+  post-01: 'Friday, March 12'
+  post-02: 'Friday, March 19'
+  post-03: 'Friday, March 26'
+  post-04: 'Friday, April 2' 
+  post-05: 'Friday, April 9' 
+  post-06: 'Friday, April 16' 
+  post-07: 'Friday, April 23' 
   
 
 labs:
-  lab-01:  'Tuesday, October 20th'
-  lab-02:  'Tuesday, October 27th'
-  lab-03:  'Friday, November 6th'
-  lab-04:  'Tuesday, November 10th'
-  lab-05:  'Tuesday, November 17th'
-  lab-06:  'Tuesday, November 24th'
+  lab-01:  'Tuesday, March 16'
+  lab-02:  'Tuesday, March 23'
+  lab-03:  'Friday, March 30'
+  lab-04:  'Tuesday, April 6'
+  lab-05:  'Tuesday, April 13'
   
   
 projects: 
-  website: 'Friday, December 4th'
+  website: 'Friday, April 23'
   
   
 ---
@@ -268,7 +267,7 @@ For your lab assignment this week split the rubric into tasks on your Kanban boa
 
 Let the instructor know when you have your board set up and ready for inspection by submitting the link for your project board. 
 
-[Week 01 Lab Submission Link](https://canvas.asu.edu/courses/70101/assignments/1721185)
+[Week 01 Lab Submission Link](https://canvas.asu.edu/courses/82561/assignments/2072803)
 
 
 <br>
