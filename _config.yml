@@ -9,8 +9,8 @@
 # COURSE INSTRUCTOR: 
 
 author:
-    name:       Jesse Lecy
-    github:     lecy   # Github username for avatar
+    name:       Cristian E. Nuno # update this
+    github:     cenuno   # Github username for avatar
 
 # calendly app for virtual office hours
 calendly:  ''
@@ -52,15 +52,15 @@ header:
 # GITHUB CONFIGURATIONS 
 
 url :               "https://ds4ps.github.io"
-baseurl:            "/cpp-528-fall-2020"
-course_url:         "http://ds4ps.org/cpp-528-fall-2020/"
+baseurl:            "/cpp-528-spr-2021" # update this
+course_url:         "http://ds4ps.org/cpp-528-spr-2021/" # update this
 title:              DS4PS # don't change this
 
 github_info:
     username:          DS4PS # Github location of the course
     branch:            master
-    website-repo:      cpp-528-fall-2020
-    course-repo:       cpp-528-fall-2020
+    website-repo:      cpp-528-spr-2021 # update this
+    course-repo:       cpp-528-spr-2021 # update this
 
 
 
