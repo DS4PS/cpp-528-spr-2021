@@ -260,7 +260,7 @@ And to close it add an X to the box:
 
 You will find the final project rubric here: 
 
-[RUBRIC](project/project-rubric.html)
+[RUBRIC](project/project_rubric.html)
 
 For your lab assignment this week split the rubric into tasks on your Kanban board on GitHub and make a preliminary plan for team members to take the lead on specific tasks.
 
