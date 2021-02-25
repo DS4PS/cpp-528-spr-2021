@@ -3,20 +3,23 @@ title: "Project Rubric"
 author: "Cristian E. Nuno"
 date: '`r format(Sys.time(), "%B %d, %Y")`'
 output:
-  html_document:
-    theme: readable
-    df_print: paged
+  rmdformats::downcute:
+    self_contained: true
+    thumbnails: true
+    lightbox: true
+    gallery: false
     highlight: tango
-    toc: yes
-    toc_float: yes
-    css: 'lab-instructions.css'
 ---
 
 # CPP 528 – Group Project Instructions
 
 ## Overview
 
-The project for this course is designed as an opportunity to practice project management skills. It is broken into six steps, leaving one week at the end of the semester for a final round of revisions, documenting the process, and house-cleaning in your GitHub repo.
+The project for this course is designed as an opportunity to practice project management skills by showing your research on a static website hosted on GitHub Pages. Overall, this project is worth 100 points and makes up a bulk of your final grade.
+
+![Overview of points](visuals/project_rubric_overall.png)
+
+It is broken into six steps, leaving one week at the end of the semester for a final round of revisions, documenting the process, and house-cleaning in your GitHub repo.
 
 * Week 01: Introduction to project management
 * Week 02: Introduction to data management
@@ -26,9 +29,9 @@ The project for this course is designed as an opportunity to practice project ma
 * Week 06: Add reproducible work-flow via [`drake`](https://books.ropensci.org/drake/) package
 * Week 07: Finalize project website and project requirements
 
-Each week you will work on one step of the analysis as a lab. These labs should be completed and submitted individually (you are still allowed to collaborate on labs but submit your labs individually). Your team can then synthesize a final chapter from components of team member files.
+Each week you will work on one step of the analysis as a lab. These labs should be completed and submitted individually (you are still allowed to collaborate on labs but submit your labs individually). 
 
-The group grade will primarily focus on the integration of content into a clean final report format that makes all of the steps in the process transparent and easily reproducible.
+As a team, you'll collaborate to synthesize the work from each other into one concrete project. Together, you will primarily focus on the integration of content into a static website which makes all of the steps in your research transparent and easily reproducible.
 
 
 ## Table of Contents
@@ -68,18 +71,20 @@ Note that there are some sections like “Overview of Programs” that require a
 
 # Grading Rubric
 
+![Points broken down by section](visuals/project_rubric_details.png)
+
 Your grade will largely be based upon your demonstration of mastery of project management principles and your ability to implement the project steps.
 
-Your deliverable will be a report packaged as a Jekyll website hosted on GitHub, and all of the components necessary to replicate results (data, code, documentation of packages, etc).
+Your deliverable will be a report packaged as a static website hosted on GitHub Pages (just like this course website), and all of the components necessary to replicate results (data, code, documentation of packages, etc).
 
 You will be allocated points based upon your performance on the following criteria:
 
 
 ## FINAL DELIVERABLES [50 points]
 
-### Project Website in Jekyll [15 points]
+### Project Website hosted on GitHub Pages [15 points]
 
-You will create an `index.md` file to serve as the landing page for the report, and link to report chapters from that document. Individual chapters should be stored as separate `RMD` files (rendered as `HTM`L files for the report). You can link to rendered `HTML` files by referencing them in the proper sub-directories:
+You will create an `index.md` file to serve as the landing page for the report, and link to report chapters from that document. Individual chapters should be stored as separate `RMD` files (rendered as `HTML` files for the report). You can link to rendered `HTML` files by referencing them in the proper sub-directories:
 
 * http://site-url.com (will load the index file)
 * http://site-url/analysis/file-name.html (file in `analysis/` sub-directory)
@@ -103,7 +108,7 @@ You will create an `index.md` file to serve as the landing page for the report, 
 * `README.md` in the data folder that explains the organization of the files
 
 ### Analysis [15 points]
-* Quality of models and presentation of the steps to produce results: o Chapteronmetrics
+* Quality of models and presentation of the steps to produce results: 
     + Chapter on descriptive analysis of neighborhood change
     + Chapter predicting change with neighborhood characteristics
     + Chapter describing tax credit programs (NMTC & LIHTC)
