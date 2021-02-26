@@ -40,6 +40,8 @@ These GitHub repositories provide a few examples of work that is designed to be 
 - [Traffic Stops Across Connecticut](http://trafficstops.trendct.org/data/)
 
 
+
+
 ## Neighborhood Change Project
 
 CPP 528 is organized around a single large project that allows you to revisit and practice skills from 523, 524, 526 and 527. 
@@ -59,6 +61,30 @@ New Market Tax Credits (NMTC) are mechanisms designed to catalyze economic devel
 **Has each federal program been successful in facilitating economic development in distressed communities?**
 
 We will use 2000 to 2010 as the study period and look at broad trends in neighborhood change over this decade, then examine whether neighborhoods targeted by the programs have achieved any more success than they would have without the billion of dollars in federal subsidies. 
+
+
+
+## Course Cadence 
+
+The project will be split into the following steps: 
+
+*	Week 1: Neighborhood Revitalization Background  
+*	Week 2: Build the Census Dataset  
+*	Week 3: Descriptive Analysis
+*	Week 4: Model Neighborhood Change
+*	Week 5: Construct Measures of Neighborhood Health
+*	Week 6: Estimate Program Impact  
+*	Week 7: Finalize Deliverables 
+
+These analysis will mirror with following project management steps: 
+
+*	Week 1: Introduction to Project Management  
+*	Week 2: Build an R Data Package    
+*	Week 3: Document the Data 
+*	Week 4: Draft Report   
+*	Week 5: Format Report / Add Citations 
+*	Week 6: Interpret Models 
+*	Week 7: Finalize Deliverables 
 
 
 <br>
