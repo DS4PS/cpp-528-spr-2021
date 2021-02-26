@@ -77,27 +77,7 @@ Submit Button - <a class="uk-button uk-button-primary" href="{{page.canvas.assig
 
 ---
 
-## Course Cadence 
 
-The project will be split into the following steps: 
-
-*	Week 1: Neighborhood Revitalization Background  
-*	Week 2: Build the Census Dataset  
-*	Week 3: Descriptive Analysis
-*	Week 4: Model Neighborhood Change
-*	Week 5: Construct Measures of Neighborhood Health
-*	Week 6: Estimate Program Impact  
-*	Week 7: Finalize Deliverables 
-
-These analysis will mirror with following project management steps: 
-
-*	Week 1: Introduction to Project Management  
-*	Week 2: Build an R Data Package    
-*	Week 3: Document the Data 
-*	Week 4: Draft Report   
-*	Week 5: Format Report / Add Citations 
-*	Week 6: Interpret Models 
-*	Week 7: Finalize Deliverables 
 
 
 <br>
