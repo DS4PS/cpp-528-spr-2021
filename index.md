@@ -5,7 +5,7 @@ title: Syllabus
 index:
     title: Foundations of Data Science Part III
     image: data-science.png
-    subtitle: This course extends work done in CPP 526 and 527 while introducing  
+    subtitle: Project management for data analysts 
     
 info: 
  program_title: Program Evaluation and Data Analytics
