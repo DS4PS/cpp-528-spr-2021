@@ -117,17 +117,18 @@ These analysis will mirror with following project management steps:
 
 ---
 
+**YD Post by {{page.yellowdig.post-01}}**
+
+<a class="uk-button uk-button-primary" style="width:200px" href="{{page.yellowdig_url}}">CREATE POST</a>
+
+---
+
 **Lab Due {{page.labs.lab-01}}**
 
 <a class="uk-button uk-button-primary" style="width:200px" href="{{page.canvas.assignment_url}}">SUBMIT LAB</a>
 
 ---
 
-**YD Post by {{page.yellowdig.post-01}}**
-
-<a class="uk-button uk-button-primary" style="width:200px" href="{{page.yellowdig_url}}">CREATE POST</a>
-
-<hr>
 <br>
 <br>
 <br>
