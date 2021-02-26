@@ -64,10 +64,13 @@ Submit Button - <a class="uk-button uk-button-primary" href="{{page.canvas.assig
 
 # Course Overview
 
+---
+
 <a class="uk-button uk-button-default" style="width:200px" href="../motivation/">MOTIVATION</a>
 <br><br>
 <a class="uk-button uk-button-default" style="width:200px" href="../sched/week-00/">COURSE OVERVIEW</a>
 
+---
 
 ## Course Cadence 
 
@@ -111,9 +114,9 @@ These analysis will mirror with following project management steps:
 <br><br>
 <a class="uk-button uk-button-default" style="width:200px" href="../sched/week-01/">LECTURE</a>
 <br><br>
-<a class="uk-button uk-button-default" style="width:200px" href="../labs/lab-01-instructions/">LAB</a>
-<br><br>
 <a class="uk-button uk-button-default" style="width:200px" href="../discuss/yellowdig-01">YELLOWDIG TOPIC</a>
+<br><br>
+<a class="uk-button uk-button-default" style="width:200px" href="../labs/lab-01-instructions/">LAB</a>
 
 ---
 
