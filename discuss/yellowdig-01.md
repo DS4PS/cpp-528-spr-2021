@@ -7,7 +7,7 @@ image-width: 150px
 
 <div class = "uk-container uk-container-small">
 
-**Investing in Communities**
+## Investing in Communities
 
 Economic development is challenging because it is difficult to determine what makes for a good investment in a community. 
 
