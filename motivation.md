@@ -1,6 +1,6 @@
 ---
 layout: lab
-title: Course Overview
+title: Motivating the Topic
 image: books.svg
 image-width: 150px
 ---
