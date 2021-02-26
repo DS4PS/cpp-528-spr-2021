@@ -112,27 +112,26 @@ These analysis will mirror with following project management steps:
 <a class="uk-button uk-button-default" style="width:200px" href="../sched/week-01/">LECTURE</a>
 <br><br>
 <a class="uk-button uk-button-default" style="width:200px" href="../labs/lab-01-instructions/">LAB</a>
+<br><br>
+<a class="uk-button uk-button-default" style="width:200px" href="../discuss/yellowdig-01">YELLOWDIG TOPIC</a>
 
 ---
 
-**Due {{page.labs.lab-01}}**
+**Lab Due {{page.labs.lab-01}}**
 
 <a class="uk-button uk-button-primary" style="width:200px" href="{{page.canvas.assignment_url}}">SUBMIT LAB</a>
 
 ---
 
-**Post by {{page.yellowdig.post-01}}**
-
-<a class="uk-button uk-button-default" style="width:200px" href="../discuss/yellowdig-01">YELLOWDIG TOPIC</a>
+**YD Post by {{page.yellowdig.post-01}}**
 
 <a class="uk-button uk-button-primary" style="width:200px" href="{{page.yellowdig_url}}">CREATE POST</a>
 
-<br>
-<br>
 <hr>
 <br>
 <br>
-
+<br>
+<br>
 
 
 
