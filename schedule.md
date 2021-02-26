@@ -316,7 +316,7 @@ Submit Button - <a class="uk-button uk-button-primary" href="{{page.canvas.assig
 
 **Final Project Due {{page.projects.website}}**
 
-<a class="uk-button uk-button-primary" style="width:200px" href="{{page.canvas.assignment_url}}">SUBMIT FINAL PROJECT</a>
+<a class="uk-button uk-button-primary" style="width:200px" href="{{page.canvas.assignment_url}}">FINAL PROJECT</a>
 
 ---
 
