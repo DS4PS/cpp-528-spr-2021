@@ -110,7 +110,7 @@ These analysis will mirror with following project management steps:
 <br><br>
 <a class="uk-button uk-button-default" style="width:200px" href="../sched/week-01/">LECTURE</a>
 <br><br>
-<a class="uk-button uk-button-default" style="width:200px" href="../labs/lab-01/">LAB</a>
+<a class="uk-button uk-button-default" style="width:200px" href="../labs/lab-01-instructions/">LAB</a>
 
 ---
 
