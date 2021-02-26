@@ -78,7 +78,7 @@ And to close it add an X to the box:
 - [X] finalize attendance list 
 
 
-**Lab Instructions:**
+**Lab Deliverables:**
 
 
 For your lab assignment this week split the rubric into tasks on your Kanban board on GitHub and make a preliminary plan for team members to take the lead on specific tasks.
@@ -86,6 +86,8 @@ For your lab assignment this week split the rubric into tasks on your Kanban boa
 You will find the final project rubric here: 
 
 [[RUBRIC](project/project-rubric.pdf)]
+
+When you have your kanban board set up and ready for inspection have one team member submit the link to the instructor. 
 
 <br>
 <hr>
