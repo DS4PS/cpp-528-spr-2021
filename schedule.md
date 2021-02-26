@@ -64,9 +64,10 @@ Submit Button - <a class="uk-button uk-button-primary" href="{{page.canvas.assig
 
 # Course Overview
 
-<a class="uk-button uk-button-default" style="width:150px" href="../sched/week-00/">MOTIVATION</a>
+<a class="uk-button uk-button-default" style="width:200px" href="../motivation/">MOTIVATION</a>
 <br><br>
-<a class="uk-button uk-button-default" style="width:150px" href="../motivation/">OVERVIEW</a>
+<a class="uk-button uk-button-default" style="width:200px" href="../sched/week-00/">COURSE OVERVIEW</a>
+
 
 ## Course Cadence 
 
