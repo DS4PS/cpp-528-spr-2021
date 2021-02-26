@@ -1,7 +1,7 @@
 ---
 layout: lab
-title: Motivating the Topic
-image: microscope.png
+title: Course Overview
+image: books.svg
 image-width: 150px
 ---
 
