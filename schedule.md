@@ -140,6 +140,205 @@ These analysis will mirror with following project management steps:
 
 
 
+# Week 2 - Data Management   
+
+---
+
+<a class="uk-button uk-button-default" style="width:200px" href="{{ page.videos.vid-02 }}">OVERVIEW</a>
+<br><br>
+<a class="uk-button uk-button-default" style="width:200px" href="../sched/week-02/">LECTURE</a>
+<br><br>
+<a class="uk-button uk-button-default" style="width:200px" href="../discuss/yellowdig-02">YELLOWDIG TOPIC</a>
+<br><br>
+<a class="uk-button uk-button-default" style="width:200px" href="../labs/lab-02-instructions/">LAB</a>
+
+---
+
+**YD Post by {{page.yellowdig.post-02}}**
+
+<a class="uk-button uk-button-primary" style="width:200px" href="{{page.yellowdig_url}}">CREATE POST</a>
+
+---
+
+**Lab Due {{page.labs.lab-02}}**
+
+<a class="uk-button uk-button-primary" style="width:200px" href="{{page.canvas.assignment_url}}">SUBMIT LAB</a>
+
+---
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+# Week 3 - Neighborhood Change 
+
+---
+
+<a class="uk-button uk-button-default" style="width:200px" href="{{ page.videos.vid-03 }}">OVERVIEW</a>
+<br><br>
+<a class="uk-button uk-button-default" style="width:200px" href="../sched/week-03/">LECTURE</a>
+<br><br>
+<a class="uk-button uk-button-default" style="width:200px" href="../discuss/yellowdig-03">YELLOWDIG TOPIC</a>
+<br><br>
+<a class="uk-button uk-button-default" style="width:200px" href="../labs/lab-03-instructions/">LAB</a>
+
+---
+
+**YD Post by {{page.yellowdig.post-03}}**
+
+<a class="uk-button uk-button-primary" style="width:200px" href="{{page.yellowdig_url}}">CREATE POST</a>
+
+---
+
+**Lab Due {{page.labs.lab-03}}**
+
+<a class="uk-button uk-button-primary" style="width:200px" href="{{page.canvas.assignment_url}}">SUBMIT LAB</a>
+
+---
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+# Week 4 - Predicting Change 
+
+---
+
+<a class="uk-button uk-button-default" style="width:200px" href="{{ page.videos.vid-04 }}">OVERVIEW</a>
+<br><br>
+<a class="uk-button uk-button-default" style="width:200px" href="../sched/week-04/">LECTURE</a>
+<br><br>
+<a class="uk-button uk-button-default" style="width:200px" href="../discuss/yellowdig-04">YELLOWDIG TOPIC</a>
+<br><br>
+<a class="uk-button uk-button-default" style="width:200px" href="../labs/lab-04-instructions/">LAB</a>
+
+---
+
+**YD Post by {{page.yellowdig.post-04}}**
+
+<a class="uk-button uk-button-primary" style="width:200px" href="{{page.yellowdig_url}}">CREATE POST</a>
+
+---
+
+**Lab Due {{page.labs.lab-04}}**
+
+<a class="uk-button uk-button-primary" style="width:200px" href="{{page.canvas.assignment_url}}">SUBMIT LAB</a>
+
+---
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+# Week 5 - Modeling the Intervention  
+
+---
+
+<a class="uk-button uk-button-default" style="width:200px" href="{{ page.videos.vid-05 }}">OVERVIEW</a>
+<br><br>
+<a class="uk-button uk-button-default" style="width:200px" href="../sched/week-05/">LECTURE</a>
+<br><br>
+<a class="uk-button uk-button-default" style="width:200px" href="../discuss/yellowdig-05">YELLOWDIG TOPIC</a>
+<br><br>
+<a class="uk-button uk-button-default" style="width:200px" href="../labs/lab-05-instructions/">LAB</a>
+
+---
+
+**YD Post by {{page.yellowdig.post-05}}**
+
+<a class="uk-button uk-button-primary" style="width:200px" href="{{page.yellowdig_url}}">CREATE POST</a>
+
+---
+
+**Lab Due {{page.labs.lab-05}}**
+
+<a class="uk-button uk-button-primary" style="width:200px" href="{{page.canvas.assignment_url}}">SUBMIT LAB</a>
+
+---
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+# Week 6 - Bringing it All Together
+
+---
+
+<a class="uk-button uk-button-default" style="width:200px" href="{{ page.videos.vid-06 }}">OVERVIEW</a>
+<br><br>
+<a class="uk-button uk-button-default" style="width:200px" href="../sched/week-06/">LECTURE</a>
+<br><br>
+<a class="uk-button uk-button-default" style="width:200px" href="../discuss/yellowdig-06">YELLOWDIG TOPIC</a>
+<br><br>
+<a class="uk-button uk-button-default" style="width:200px" href="../labs/lab-06-instructions/">LAB</a>
+
+---
+
+**YD Post by {{page.yellowdig.post-06}}**
+
+<a class="uk-button uk-button-primary" style="width:200px" href="{{page.yellowdig_url}}">CREATE POST</a>
+
+---
+
+**Lab Due {{page.labs.lab-06}}**
+
+<a class="uk-button uk-button-primary" style="width:200px" href="{{page.canvas.assignment_url}}">SUBMIT LAB</a>
+
+---
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+# Week 7 - Finalizing Deliverables 
+
+---
+
+<a class="uk-button uk-button-default" style="width:200px" href="{{ page.videos.vid-07 }}">OVERVIEW</a>
+<br><br>
+<a class="uk-button uk-button-default" style="width:200px" href="../sched/week-07/">LECTURE</a>
+<br><br>
+<a class="uk-button uk-button-default" style="width:200px" href="../discuss/yellowdig-07">YELLOWDIG TOPIC</a>
+<br><br>
+<a class="uk-button uk-button-default" style="width:200px" href="../labs/lab-07-instructions/">LAB</a>
+
+---
+
+**YD Post by {{page.yellowdig.post-07}}**
+
+<a class="uk-button uk-button-primary" style="width:200px" href="{{page.yellowdig_url}}">CREATE POST</a>
+
+---
+
+**Lab Due {{page.labs.lab-07}}**
+
+<a class="uk-button uk-button-primary" style="width:200px" href="{{page.canvas.assignment_url}}">SUBMIT LAB</a>
+
+---
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+
 
 
 
