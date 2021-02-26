@@ -29,6 +29,17 @@ Since we are using the median home value variable which represents an entire cen
 [Hedonic Pricing Regression Example in R](https://github.com/buruzaemon/hedonic)
 
 [Valuation Using Hedonic Pricing Models](https://scholarship.sha.cornell.edu/cgi/viewcontent.cgi?article=1058&context=crer)
+
+## Lab Overview 
+
+**The dependent variable in our model is the median home value**. 
+
+This choice draws on a large body of work on “hedonic pricing models” which assert that home values are a good price mechanism to capture the state of a neighborhood because they “price in” all of the characteristics of the house as well as the features of the neighborhood and surrounding city.
+
+This lab will comprise one step of your methodology section in your final report. Using R Markdown documents, show your code for all of the steps and provide details on the reasoning. 
+
+
+
 <br>
 <br>
 
