@@ -300,13 +300,11 @@ Submit Button - <a class="uk-button uk-button-primary" href="{{page.canvas.assig
 
 ---
 
-<a class="uk-button uk-button-default" style="width:200px" href="{{ page.videos.vid-07 }}">OVERVIEW</a>
-<br><br>
 <a class="uk-button uk-button-default" style="width:200px" href="../sched/week-07/">LECTURE</a>
 <br><br>
 <a class="uk-button uk-button-default" style="width:200px" href="../discuss/yellowdig-07">YELLOWDIG TOPIC</a>
 <br><br>
-<a class="uk-button uk-button-default" style="width:200px" href="../labs/lab-07/">LAB</a>
+<a class="uk-button uk-button-default" style="width:200px" href="../labs/lab-07/">DELIVERABLES</a>
 
 ---
 
@@ -316,9 +314,9 @@ Submit Button - <a class="uk-button uk-button-primary" href="{{page.canvas.assig
 
 ---
 
-**Lab Due {{page.labs.lab-07}}**
+**Final Project Due {{page.projects.website}}**
 
-<a class="uk-button uk-button-primary" style="width:200px" href="{{page.canvas.assignment_url}}">SUBMIT LAB</a>
+<a class="uk-button uk-button-primary" style="width:200px" href="{{page.canvas.assignment_url}}">SUBMIT FINAL PROJECT</a>
 
 ---
 
