@@ -78,11 +78,8 @@ Submit Button - <a class="uk-button uk-button-primary" href="{{page.canvas.assig
 ---
 
 
-
-
 <br>
 <br>
-<hr>
 <br>
 <br>
 
