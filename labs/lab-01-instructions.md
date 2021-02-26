@@ -1,7 +1,7 @@
 ---
 layout: lab
 title: Lab 01 - Project Setup
-image: model.svg
+image: microscope.png
 image-width: 150px
 ---
 
@@ -10,6 +10,11 @@ image-width: 150px
 
 <br>
 
+<a class="uk-button uk-button-default" style="width:200px" href="../../project/project-rubric.pdf">PROJECT RUBRIC</a>
+
+<br>
+
+## Project Management Toolkit
 
 [**What is Kanban?**](https://www.digite.com/kanban/what-is-kanban/)
 
@@ -85,7 +90,7 @@ For your lab assignment this week split the rubric into tasks on your Kanban boa
 
 You will find the final project rubric here: 
 
-[[RUBRIC](project/project-rubric.pdf)]
+<a class="uk-button uk-button-default" style="width:200px" href="../../project/project-rubric.pdf">PROJECT RUBRIC</a>
 
 When you have your kanban board set up and ready for inspection have one team member submit the link to the instructor. 
 
