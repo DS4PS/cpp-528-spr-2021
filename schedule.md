@@ -155,7 +155,7 @@ These analysis will mirror with following project management steps:
 <br><br>
 <a class="uk-button uk-button-default" style="width:200px" href="../discuss/yellowdig-02">YELLOWDIG TOPIC</a>
 <br><br>
-<a class="uk-button uk-button-default" href="../labs/lab-02-instructions.html">LAB TUTORIAL</a>
+<a class="uk-button uk-button-default" style="width:200px" href="../labs/lab-02-instructions.html">LAB TUTORIAL</a>
 <br><br>
 <a class="uk-button uk-button-default" style="width:200px" href="../labs/lab-02/">LAB</a>
 
