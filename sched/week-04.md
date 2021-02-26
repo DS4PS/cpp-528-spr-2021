@@ -8,7 +8,9 @@ image-width: 150px
 <div class = "uk-container uk-container-small">
 
 <br>
-<hr>
+<br>
+
+----
 
 > This week you will accomplish two things:
 > 
@@ -16,7 +18,11 @@ image-width: 150px
 >
 > (2) build your baseline model of neighborhood change before adding the policy variables in the next lab.   
 
+
+---
+
 <br>
+
 
 ## Background Reading 
 
