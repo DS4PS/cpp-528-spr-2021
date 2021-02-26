@@ -1,23 +1,17 @@
 ---
 layout: lab
-title: Motivating the Topic
-image: microscope.png
+title: Course Overview 
+image: books.svg
 image-width: 150px
 ---
 
 <div class = "uk-container uk-container-small">
 
 <br>
-<hr>
-
-**Here is a good rule of thumb: If you are trying to solve a problem, and there are multi-billion dollar firms whose entire business model depends on solving the same problem, and there are whole courses at your university devoted to how to solve that problem, you might want to figure out what the experts do and see if you can’t learn something from it.** 
-
-<hr>
 <br>
 
 
-
-# Course Overview 
+# Foundations in Data Science III 
  
 CPP 528 is the third course in the Foundations of Data Science sequence. This semester synthesizes and extends work from 526 and 527 by introducing project management frameworks to your workflow. 
 
