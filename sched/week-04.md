@@ -10,9 +10,11 @@ image-width: 150px
 <br>
 <hr>
 
-> This week you will accomplish two things: 
+> This week you will accomplish two things:
+> 
 > (1) practice variable transformations and 
-> (2) build your baseline model of neighborhood change before adding the policy variables in the next lab. 
+>
+> (2) build your baseline model of neighborhood change before adding the policy variables in the next lab.   
 
 <br>
 
@@ -38,13 +40,6 @@ This choice draws on a large body of work on “hedonic pricing models” which 
 
 This lab will comprise one step of your methodology section in your final report. Using R Markdown documents, show your code for all of the steps and provide details on the reasoning. 
 
-
-
-<br>
-<br>
-
-<hr>
-<br>
 
 
 <br>
