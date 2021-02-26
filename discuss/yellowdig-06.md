@@ -13,7 +13,7 @@ This topic has three parts:
 
 **Part I**
 
-I only have one question for you: what pain point did you experience this week? If you could go back in time, how would you resolve these problems?
+What pain points did you experience this week? If you could go back in time, how would you resolve these problems?
 
 ---
 
