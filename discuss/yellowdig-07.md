@@ -7,6 +7,10 @@ image-width: 150px
 
 <div class = "uk-container uk-container-small">
 
+## Final YellowDig Posts
+
+This week you will create two final pins to reflect upon your project.
+
 ## How Confident Are You in Your Recommendations?   
 
 Consider all of the steps that are necessary to conduct analysis of a policy or program and make conclusions about effectiveness or recommendations on implementation:
@@ -27,6 +31,15 @@ Where do you feel like you are most likely to introduce bias into the process?
 Do you feel like the benefits of peer review (all work is reviewed by team members) outweigh the costs? 
 
 What was the hardest part of reviewing someone else's code? 
+
+## Share Your Final Report
+
+Share a link to your project website and highlight specific sections when you answer the following: 
+
+1. What is one aspect of the project you are proud of and that you think works well?  
+2. What is one aspect of the final product that you hope to improve upon next time?  
+
+Each team member should answer these questions individually. 
 
 <br>
 <hr>
