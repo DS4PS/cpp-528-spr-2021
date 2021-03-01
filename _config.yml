@@ -36,6 +36,8 @@ header:
   url: 
 - title: Course Schedule
   url: schedule/
+- title: Project Rubric
+  url: project/project_rubric.html
 # - title: Textbook
 #   url: https://ds4ps.org/dp4ss/#dp4ss-data-programming-for-the-social-sciences
 - title: Resources
