@@ -12,4 +12,4 @@ mutate()
 rename()
 group_by()
 summarize()
-pipe %>%
+#pipe %>%

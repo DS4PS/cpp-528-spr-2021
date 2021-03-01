@@ -13,14 +13,14 @@ info:
  course_title: Foundations of Data Science Part III
  course_number: CPP 528 
  course_level: Graduate 
- course_website: 'https://canvas.asu.edu/courses/70101/'
+ course_website: 'https://canvas.asu.edu/courses/82561'
  course_start_end_dates: March 8 to April 23, 2021
  course_prerequisites:  
  class_meets_when:  Asynchronous  
  class_meets_where:  'https://asu.zoom.us/meeting/557182841'
  review_sessions_when: TBD 
  review_sessions_where: Zoom
- discussion_board_url: 'https://ds4ps.org/cpp-528-fall-2021/help/'
+ discussion_board_url: 'https://ds4ps.org/cpp-528-spr-2021/help/'
 
 instructor:
 -  name: Cristian E. Nuno
@@ -71,8 +71,10 @@ This course, Foundations of Data Science III, reviews material from CPP 526 and 
 After completing the course students will be able to:
 
 * Deploy modern project management frameworks to ensure data projects run efficiently and avoid errors.
-* Package a report using GitHub pages. 
-* Create a fully transparent and reproducible product. 
+* Store data processing steps in `.R` files - as opposed to `.RMD` files - and export `R` objects as `.rds` files to be called later
+* Create `.RMD` files that use [inline `r` code](https://rmarkdown.rstudio.com/lesson-4.html) to create reports that easily pick up on changes.
+* Initiate, participate, and lead code reviews - via [GitHub Pull Request](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests) - in order to perform continuous quality assurance of your team's work
+* Host their work on a GitHub pages website. 
 
 Course Prerequisites: 	
 
@@ -82,10 +84,13 @@ This course builds upon basic R programming material from Data Science I (CPP 52
 
 Assessment of student performance in this course is based on indications that the course learning objectives stated above have been achieved.  Several areas of measurement will be used to produce a final student performance rating.  These areas of performance assessment include the following:
 
+* Working collaboratively and asynchronously with your team
 * Building a research database by combining several data sources. 
 * Perform descriptive analysis. 
 * Use regression to make inferences about programs. 
-* Manage a project using versioning. 
+* User version control to manage ongoing change within a project via [GitHub Desktop](https://desktop.github.com/)
+* Export `list` objects as `.rds` files, which are then imported into `.RMD` files whenever possible
+* Use of [RStudio Projects](https://www.youtube.com/watch?v=kfcX5DEMAp4), [GitHub Issues](https://guides.github.com/features/issues/), Pull Requests, and [commit messages](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/committing-and-reviewing-changes-to-your-project#about-commits) to communicate information about each other's code
 * Providing proper documentation on analysis performed.  
 
 Students will demonstrate competency in understanding, producing and communicating results of their analyses through the following assignments:  
@@ -101,7 +106,7 @@ Assigned work, including the course final project, and the quality of active par
 
 ## A. Format and Pedagogical Theory
 
-Mastering advanced analytical techniques and data programming is like learning a language. You start by mastering basic vocabulary that is specific to statistics and data science. Through your coursework you will become conversant in the domains of regression analysis, research design, and data science. Progress might be slow at first as you work to master core concepts, integrate the building blocks into a coherent mental model of real-world problems, learn to translate technical results into clear narratives for non-technical audiences, and become comfortable with data programming skills. Over time you will find that your thought processes change as you approach problem-solving in a more structured and evidence-based manner, you apply counter-factual reasoning to performance problems, and you start reading the news and viewing scientific evidence differently. You begin to think and speak like a program evaluator.
+Mastering analytic techniques is like learning a language. You start by mastering basic vocabulary that is specific to statistics and data science. Through your coursework you will become conversant in the domains of regression analysis, research design, and data science. Progress might be slow at first as you work to master core concepts, integrate the building blocks into a coherent mental model of real-world problems, learn to translate technical results into clear narratives for non-technical audiences, and become comfortable with data programming skills. Over time you will find that your thought processes change as you approach problem-solving in a more structured and evidence-based manner, you apply counter-factual reasoning to performance problems, and you start reading the news and viewing scientific evidence differently. You begin to think and speak like a program evaluator.
 
 By the end of this degree you will be conversant in statistics, research design, and data programming. Fluency takes time and will be developed through professional experience. It requires you to practice these skills to develop muscle memory. You can do this through participating in evaluations on the job and gaining experience building and cleaning data sets from scratch. Understand, though, that this degree focuses on building foundations for your career. Don&#39;t be nervous if it feels like it&#39;s impossible to master all of the material in this program – it is impossible to learn everything in this field in a year.
 
@@ -109,7 +114,7 @@ Similar to immersion in a language, the best way to learn the material is to be 
 
 Online discussion boards are design for students to engage with the material together. The purpose of online discussion sessions is threefold: (1) the online discussion sessions allow students to interact with their peers and share ideas and interpretations of the assigned material, (2) such peer-to-peer discussion online helps build professional relationships with potential future colleagues in the field, and (3) the discussions permit the instructor to assess student engagement with the assigned material.
 
-The online discussions are explicitly intended to meet the objectives stated above.  They are not intended as another form of &quot;lecture&quot; where the instructor provides commentary and students simply react to that.  Rather, the discussions are a chance for peer-to-peer interaction and proactive engagement by each individual student.
+The online discussions are explicitly intended to meet the objectives stated above.  They are not intended as another form of "lecture" where the instructor provides commentary and students simply react to that.  Rather, the discussions are a chance for peer-to-peer interaction and proactive engagement by each individual student.
 
 
 
@@ -145,9 +150,9 @@ Below 80%   |  C, D, F
 
 The assigned work for the term comes in the form of four elements, described below:
 
-- **Weekly Labs (25%):**  Each week there will be a lab designed to guide you through the project step for the week. They will require data wrangling to build your research database, descriptive analysis, and regression. **They are graded pass / fail** by the instructors based upon an assessment of whether you have sincerely attempted the lab and answered over half of the questions correctly. This is designed to hold you accountable for the material, but not create anxiety about perfection. There are six labs total, each worth 5%. You can drop one lab during the term. 
+- **Weekly Labs (25%):**  Each week there will be a lab designed to guide you through the project step for the week. They will require data wrangling to build your research database, descriptive analysis, and regression. **They are graded pass / fail** by the instructors based upon an assessment of whether you have sincerely attempted the lab and answered over half of the questions correctly. This is designed to hold you accountable for the material, but not create anxiety about perfection. There are six labs total, each worth 5%. You can drop one lab during the term but at least two of your team members must be working on a weekly lab to avoid having one team member working on a lab on behalf of the entire team.
 
-- **Applied Project Deliverables (65%):**  Your report on the impact of federal tax credit programs designed to stimulate community revitalization will serve as your primary deliverable for the semester. Each week you will be asked to complete new steps on your final project. You may submit them for feedback and guidance, and revise them before the final deadline. Your final grade will be based upon how clearly results are presented and how easy it is for a non-team member to replicate resulst from your study using your GitHub repository. 
+- **Applied Project Deliverables (65%):**  Your report on the impact of federal tax credit programs designed to stimulate community revitalization will serve as your primary deliverable for the semester. Each week you will be asked to complete new steps on your final project. You may submit them for feedback and guidance, and revise them before the final deadline. Your final grade will be based upon how clearly results are presented and how easy it is for a non-team member to replicate results from your study using your GitHub repository. 
 
 - **Yellowdig Discussions (10%):**  YellowDig will be used this term to guide discussions on the substantive policy issues regarding community revitalization efforts, and on challenges of using administrative data to conduct causal analysis to measure program impact. 
 
@@ -221,7 +226,7 @@ Use the **Schedule** tab on the navigation bar for detailed information each wee
 * Week 03: Descriptive analysis of neighborhood change
 * Week 04: Predicting median home value change, 2000 to 2010
 * Week 05: Adding federal program data to your predictive models
-* Week 06: Add reproducible work-flow via [`drake`](https://books.ropensci.org/drake/) package
+* Week 06: Test reproducible work flow with a parameter change
 * Week 07: Finalize project website and project requirements
 
 

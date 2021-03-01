@@ -10,7 +10,7 @@ image-width: 150px
 
 <br>
 
-<a class="uk-button uk-button-default" style="width:200px" href="../../project/project-rubric/">PROJECT RUBRIC</a>
+<a class="uk-button uk-button-default" style="width:200px" href="../../project/project_rubric.html">PROJECT RUBRIC</a>
 
 <br>
 
@@ -90,7 +90,7 @@ For your lab assignment this week split the rubric into tasks on your Kanban boa
 
 You will find the final project rubric here: 
 
-<a class="uk-button uk-button-default" style="width:200px" href="../../project/project-rubric/">PROJECT RUBRIC</a>
+<a class="uk-button uk-button-default" style="width:200px" href="../../project/project_rubric.html">PROJECT RUBRIC</a>
 
 When you have your kanban board set up and ready for inspection have one team member submit the link to the instructor. 
 
