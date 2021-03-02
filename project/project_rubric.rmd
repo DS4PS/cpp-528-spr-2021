@@ -17,7 +17,7 @@ output:
 
 The project for this course is designed as an opportunity to practice project management skills by showing your research on a static website hosted on GitHub Pages. Overall, this project is worth 100 points and makes up the bulk of your final grade.
 
-![Overview of points](visuals/project_rubric_overall.png)
+![Overview of points](visuals/project_rubric_overall.png){width="150%"}
 
 It is broken into six steps, leaving one week at the end of the semester for a final round of revisions, documenting the process, and house-cleaning in your GitHub repo.
 
@@ -71,7 +71,7 @@ Note that there are some sections like “Overview of Programs” that require a
 
 # Grading Rubric
 
-![Points broken down by section](visuals/project_rubric_details.png)
+![Points broken down by section](visuals/project_rubric_details.png){width="150%"}
 
 Your grade will largely be based upon your demonstration of mastery of project management principles and your ability to implement the project steps.
 
