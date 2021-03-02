@@ -1,35 +1,20 @@
 ---
 title: 'Lab 02 - Preparing Data For Analysis'
+date: '`r format(Sys.time(), "%B %d, %Y")`'
 output:
-  html_document:
-    theme: readable
-    df_print: paged
+  rmdformats::downcute:
+    self_contained: true
+    thumbnails: true
+    lightbox: true
+    gallery: false
     highlight: tango
-    toc: yes
-    toc_float: no
-    css: 'lab-instructions.css'
+    df_print: paged
     includes:
       after_body: 'footer.html'
 ---
-
-
-```{r setup, include=FALSE, message=FALSE}
+```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message=F, warning=F, eval=T)
-library( dplyr )
-library( here )
-library( pander )
 ```
-
-
-<br>
-
-
----
-
-<br>
-
-
-
 
 For this lab you will work on preparing your dataset for analysis and streamlining the process of making sense of the data by improving the documentation and by writing some helper functions that will allow you to query the Longitudinal Tracts Data Base to search for the variables you need for your analysis. 
 
@@ -79,11 +64,18 @@ The organization of data by census form is useful for census people building the
 
 We have built a new data dictionary that solves these issues. It enables searching for variables by topic and by availability for our period of study, and makes it possible to query the data dictionary in real-time while conducting analysis.  
 
+`r emo::ji("construction")`: heads up, this files does not exist yet. If you want it to exist, go down to "Lab Instructions" and look for ["Data Concordance File"](../../data/LTDB-DATA-DICTIONARY.xlsx) where you'll make it using a combination of Excel and the [codebook](../../data/LTDB-codebook.pdf) for this week's lab.
 
 ```{r}
-# store data dictionary file path
-DD_FILEPATH <- here::here( "data/raw/ltdb_data_dictionary.csv" )
+library( tidyverse )
+library( here )
+library( pander )
 
+# store data dictionary file path
+DD_FILEPATH <- here::here( "data/rodeo/ltdb_data_dictionary.csv" )
+```
+
+```{r}
 # import data dictionary
 dd <- read.csv( DD_FILEPATH, stringsAsFactors=F )
 ```
@@ -109,24 +101,18 @@ This new concordance version of the data dictionary was created by reading in al
 
 
 ```{r, eval=F}
-library( dplyr )
-library( pander )
-library( tidyr )
-
-
-setwd( "data/raw" )
+# store the raw data directory
+RAW_DATA_DIR <- here::here("data/raw/")
 
 # print a list of files in the directory
+all_files <- list.files(RAW_DATA_DIR)
 
-dir() %>% dput()
-
-
-these <-
-  c( "LTDB_Std_1970_fullcount.csv", "ltdb_std_1970_sample.csv", 
-     "LTDB_Std_1980_fullcount.csv", "ltdb_std_1980_sample.csv", 
-     "LTDB_Std_1990_fullcount.csv", "ltdb_std_1990_sample.csv", 
-     "LTDB_Std_2000_fullcount.csv", "ltdb_std_2000_sample.csv", 
-     "LTDB_Std_2010_fullcount.csv", "ltdb_std_2010_sample.csv" )
+# store the relevant files
+relevant_files <-
+  # from the list, use regex to only extract the relevant files
+  stringr::str_subset(string = all_files, pattern = "_(sample|fullcount).csv") %>%
+  # add the static file path back to the relevant files
+  purrr::map_chr(.f = ~ glue::glue(RAW_DATA_DIR, .x))
 
 
 # read a file
@@ -136,11 +122,17 @@ these <-
 
 all.sets <- NULL
 
-for( i in these )
+# notice the singular name that represents one element within the vector
+for( relevant_file in relevant_files )
 {
-  type <- ifelse( grepl( "sample", i ), "sample", "full" )
-  year <- substr( i, 10, 13 )
-  dat <- read.csv( i )
+  type <- ifelse( grepl( "sample", relevant_file ), "sample", "full" )
+  year <- 
+    # extract the year
+    stringr::str_extract(relevant_file, "_\\d{4}_") %>% 
+    # convert from string to numeric
+    readr::parse_number()
+  # read data
+  dat <- read.csv( relevant_file )
   vars <- names(dat) 
   d <- data.frame( vars, year, type, stringsAsFactors=F )
   all.sets <- rbind( all.sets, d )
@@ -172,7 +164,6 @@ x <- gsub( "[0-9]{2}sf3$", "sf3XX", x )
 x <- gsub( "[0-9]{2}sf4$", "sf4XX", x )
 
 root <- substr( x, 1, nchar(x)-2 ) 
-length( unique( var.root ) )
 
 all.sets$root <- root 
 
@@ -211,7 +202,28 @@ dd <- spread( d, key=year.t, value=vars, fill="" )
 # copied variable names and definitions from the 
 # current PDF of the LTDB data dictionary
 
-y <- readClipboard()  
+# first open the data dictionary
+DATA_DICTIONARY_PATH <- here::here("data/LTDB-codebook.pdf")
+# store the command to open the file programtically
+open_pdf_command <- glue::glue("open", " ", '"', DATA_DICTIONARY_PATH, '"')
+# open the pdf
+system(open_pdf_command)
+
+# NOTE: with your cursor, go to page 2. From page 2, look for the text 
+# "% white, non-Hispanic *"
+# hold your cursor and highlight all the text (include check marks)
+# until you see the following text on page 4
+# "% female-headed families with children"
+# Finally, copy the text.
+
+# store the copied text within the variable y.
+y <- readr::clipboard()  
+
+if (length(y) == 745) {
+  print("You've copied the same amount of text as the instructor. Move forward.")
+} else {
+  print("You have not copied the same amount of text as the instructor. YMMV.")
+}
 
 y2 <- gsub( " [*]", "", y )
 y3 <- gsub( "%", "pct", y2 )
@@ -239,8 +251,8 @@ dd <- dd[ new.order ]
 # replace NAs with blank cells in definition column 
 dd$definition[ is.na( dd$definition ) ] <- ""
 
-write.csv( dd, "LTDB-DATA-DICTIONARY.CSV", row.names=F )
-saveRDS( dd, "LTDB-DATA-DICTIONARY.RDS" )
+write.csv( dd, here::here("data/wrangling/ltdb_data_dictionary.csv"), row.names=F )
+saveRDS( dd, here::here("data/wrangling/ltdb_data_dictionary.rds" ))
 ```
 
 
@@ -335,7 +347,7 @@ The two dots tell R to go back to the main data folder (up one level), then down
 
 And finally, what is a **rodeo** dataset? These are files that will be used to produce analysis that appear in your reports or publications. They are called "rodeo" datasets beacause after they have been wrangled they are ready for the big show - use in models. Typically during your analysis you should only be reading files from the rodeo folder. 
 
-![](images/data-cowboy.png)
+![Data wrangling photo of cowboy](images/data-cowboy.png){width="150%"}
 
 
 You will always do variable manipulation and transformation as part of your analysis. For example, recoding the levels of a variable like combining states into regions, transformation like logging or squaring variables, or the creation of dummies. Should you include these in the data wrangling folder or in the analysis folder? 
@@ -421,12 +433,12 @@ The end goal of data wrangling is for the data to be clean and easy to use durin
 
 ## Part 1: Data Concordance 
 
-Download the [DATA CONCORDANCE FILE](https://github.com/DS4PS/cpp-528-spr-2020/raw/master/labs/data/LTDB-DATA-DICTIONARY.xlsx) that was created from the steps described above. You will see that it has all of the information about variable changes over time, but it has incomplete meta-data that describes the variables. 
+Download the [DATA CONCORDANCE FILE](../../data/LTDB-DATA-DICTIONARY.xlsx) that was created from the steps described above. You will see that it has all of the information about variable changes over time, but it has incomplete meta-data that describes the variables. 
 
 
-Using the [LTDB Codebook](https://github.com/DS4PS/cpp-528-spr-2020/raw/master/labs/data/LTDB-codebook.pdf) copy and paste the Census definitions of each field into the "description" column. 
+Using the [LTDB Codebook](../../data/LTDB-codebook.pdf) copy and paste the Census definitions of each field into the "description" column. 
 
-Using the **category** column in the file, create meaningful groups for the variables by assigning a group label to each. The LTDB codebook includes some, such as "Variable Group 1: Race and Age by Race" on page 5. Use these as a guide, but feel free to create your own taxonmy that helps you make sense of the variables. 
+Using the **category** column in the file, create meaningful groups for the variables by assigning a group label to each. The LTDB codebook includes some, such as "Variable Group 1: Race and Age by Race" on page 5. Use these as a guide, but feel free to create your own taxonomy that helps you make sense of the variables. 
 
 When you are done save the Excel file as a CSV. You lose the color coding when the file is converted to a CSV file, so it is easier to do the initial coding in the Excel format. Delete any empty rows before saving the CSV file (color-coded rows used for formatting only). 
 
@@ -436,9 +448,13 @@ We now have a machine-readable data dictionary. This allows us to create some to
 
 Part of the challenge of working with this dataset is its size. It's hard to keep track of dozens of variables at once, especially when the abbreviations are not very helpful and many concepts are closely related. 
 
-Create a couple of filters for your data dictionary that make the meta-data easier to access and easier to use. 
+### Separate data processing steps within a separate file
+Create a couple of filters for your data dictionary that make the meta-data easier to access and easier to use. These functions will live in a separate file called `utilties.R`.
 
-First, read your new CSV concordance file into R. The create the following custom functions: 
+### Import objects within that `.R` file into your `.rmd` file
+You will then import your functions within that file into a `.rmd` file, where you will hide _how_ you created these functions and merely _show_ the user what they do. In your `.rmd` file, you need to use the `source()` function to import your functions within the `utilties.R` file.
+
+After reading your new CSV concordance file into your `.R` file, create the following custom functions: 
 
 **ONE**: Filter variables by theme or group. Write a function that takes as an argument one or more of the groups that you just created in the concordance file under the "category" field and returns all of the variables associated with that group. 
 
@@ -446,7 +462,7 @@ The function should return all of the rows of the dataframe that belong to the g
 
 **TWO**: Create a function that searches variable descriptions for a specific string and returns any variables that match. For example, if I searched for "income" I would want variables like median household income and per capita income. 
 
-I would recommend making use of the **grepl()** function, which takes your search term as an argument and returns a logical vector specifying which elements matched against your term. Note the importance of the ignore case argument, and the use of regular expression anchors to specify word position. 
+I would recommend making use of the **grepl()** function or the [`stringr` package](https://stringr.tidyverse.org/). Both take your search term as an argument and returns a logical vector specifying which elements matched against your term. Note the importance of the ignore case argument, and the use of regular expression anchors to specify word position. 
 
 ```{r}
 bag.of.words <- c( "cat", "dog", "catfish", "hat", "CAT" )
@@ -487,14 +503,18 @@ Note that the variable suffixes change from year to year in the variable names (
 
 # Submission Instructions
 
-When you complete the lab you will submit a zipped folder with the CSV file containing your updated data concordance, and a knitted RMD file that demonstrates the use of your three new functions. Knit your RMD file and include your rendered HTML file. 
+When you complete the lab you will submit four individual files:
 
-Login to Canvas at <http://canvas.asu.edu> and navigate to the assignments tab in the course repository. Upload your zipped folder to the appropriate lab submission link.
+* your CSV file containing your updated data concordance
+* your `utilities.R` file
+* your knitted RMD file that demonstrates the use of your three new functions and
+* your HTML output of your RMD file
+
+Login to Canvas at <http://canvas.asu.edu> and navigate to the assignments tab in the course repository. 
 
 Remember to:
 
 * name your files according to the convention: **Lab-##-LastName.Rmd**
-* show your solution, include your code.
 * do not print excessive output (like a full data set).
 * follow appropriate style guidelines (spaces between arguments, etc.).
 
@@ -511,7 +531,7 @@ If you are having problems with your RMD file, visit the [**RMD File Styles and 
 
 Note that when you knit a file, it starts from a blank slate. You might have packages loaded or datasets active on your local machine, so you can run code chunks fine. But when you knit you might get errors that functions cannot be located or datasets don't exist. Be sure that you have included chunks to load these in your RMD file.
 
-Your RMD file will not knit if you have errors in your code. If you get stuck on a question, just add `eval=F` to the code chunk and it will be ignored when you knit your file. That way I can give you credit for attempting the question and provide guidance on fixing the problem.
+Your RMD file will not knit if you have errors in your code. If you get stuck on a question, add `eval=F` to the code chunk and it will be ignored when you knit your file. _Please let the instructor know_ at the time of submission that you needed to rely on this workaround. That way I can give you credit for attempting the question and provide guidance on fixing the problem.
 
 
 <br>
