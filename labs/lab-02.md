@@ -8,6 +8,8 @@ image-width: 150px
 
 <div class = "uk-container uk-container-small">
 
+<a class="uk-button uk-button-default" style="width:200px" href="../../labs/lab-02-instructions.html">Lab 2 Instructions</a>
+
 <br>
 
 This lab demonstrates a very minor redesign of the Longitudinal Tracts Database files to make the rest of the project smoother. 
@@ -20,15 +22,15 @@ You will follow the steps that were deployed to accomplish this, build a new dat
 
 You will find the Census Longitudinal Tabulated Database (LTDB) file here: 
 
-[Harmonized Census Data Part-01](data/LTDB_Std_All_Sample.zip)
+[Harmonized Census Data Part-01](../../data/LTDB_Std_All_Sample.zip)
 
-[Harmonized Census Data Part-02](data/LTDB_Std_All_fullcount.zip)
+[Harmonized Census Data Part-02](../../data/LTDB_Std_All_fullcount.zip)
 
-[Codebook](data/LTDB-codebook.pdf)
+[Codebook](../../data/LTDB-codebook.pdf)
 
 Most of the variables you need will come from the first dataset, which is comprised of variables that come from the long-form version of the census (which is only administered to a sample of the population) or variables from the American Community Survey (the annual survey given to a subsample of citizens). 
 
-The second dataset contains only variables that come from the Dicennial Census short form, and thus they are population measures and not sample estimates. 
+The second dataset contains only variables that come from the Decennial Census short form, and thus they are population measures and not sample estimates. 
 
 **Set Up Your Directory Structure**
 
@@ -101,7 +103,6 @@ While working on Lab-02 start building out your directory structure for your pro
 
 You need to provide careful documentation of how you get from raw data in your project to final results. Think about it as a book where each chapter covers a distinct task: 
 
-* Identifying indicators of gentrification 
 * Descriptive analysis of neighborhood change 
 * Community demographics that predict revitalization 
 * Impact of federal programs 
@@ -177,6 +178,7 @@ You should not be doing data wrangling in your analytical steps with the excepti
 <br>
 <hr>
 <br>
+<a class="uk-button uk-button-default" style="width:200px" href="../../labs/lab-02-instructions.html">Lab 2 Instructions</a>
 <br>
 
 </div>
