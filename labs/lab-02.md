@@ -8,6 +8,8 @@ image-width: 150px
 
 <div class = "uk-container uk-container-small">
 
+<a class="uk-button uk-button-default" style="width:200px" href="../../labs/lab-02-instructions.html">Lab 2 Instructions</a>
+
 <br>
 
 This lab demonstrates a very minor redesign of the Longitudinal Tracts Database files to make the rest of the project smoother. 
@@ -176,6 +178,7 @@ You should not be doing data wrangling in your analytical steps with the excepti
 <br>
 <hr>
 <br>
+<a class="uk-button uk-button-default" style="width:200px" href="../../labs/lab-02-instructions.html">Lab 2 Instructions</a>
 <br>
 
 </div>
