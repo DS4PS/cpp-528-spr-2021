@@ -3165,7 +3165,7 @@ window.onload = function() {
 <p>The variables are measured at the Census Tract level using 2010 census tracts. Even though the tracts are consistent across all of the data the meta-data describing tracts is sparse and inconsistent.</p>
 <p>The organization of data by census form is useful for census people building the datasets, but awkward for anyone trying to use the data. It forces the user to look at many more datasets than necessary when searching for variables. It also forces the user to conduct additional merges.</p>
 <p>We have built a new data dictionary that solves these issues. It enables searching for variables by topic and by availability for our period of study, and makes it possible to query the data dictionary in real-time while conducting analysis.</p>
-<p>🚧: heads up, this files does not exist yet. If you want it to exist, go down to “Lab Instructions” and look for “Data Concordance File” where you’ll make it using a combination of Excel and the <a href="../../data/LTDB-codebook.pdf">codebook</a> for this week’s lab.</p>
+<p>🚧: heads up, this files does not exist yet. If you want it to exist, go down to “Lab Instructions” and look for <a href="../data/LTDB-DATA-DICTIONARY.xlsx">“Data Concordance File”</a> where you’ll make it using a combination of Excel and the <a href="../data/LTDB-codebook.pdf">codebook</a> for this week’s lab.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>( tidyverse )</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="kw">library</span>( here )</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="kw">library</span>( pander )</span>
@@ -3755,8 +3755,8 @@ window.onload = function() {
 <p>The end goal of data wrangling is for the data to be clean and easy to use during the analytical stage of the project. For this lab you will add meaningful metadata about the LTDB dataset to a machine-readable concordance file that will be used to greatly improve the usability of the data.</p>
 <div id="part-1-data-concordance" class="section level2">
 <h2>Part 1: Data Concordance</h2>
-<p>Download the <a href="../../data/LTDB-DATA-DICTIONARY.xlsx">DATA CONCORDANCE FILE</a> that was created from the steps described above. You will see that it has all of the information about variable changes over time, but it has incomplete meta-data that describes the variables.</p>
-<p>Using the <a href="../../data/LTDB-codebook.pdf">LTDB Codebook</a> copy and paste the Census definitions of each field into the “description” column.</p>
+<p>Download the <a href="../data/LTDB-DATA-DICTIONARY.xlsx">DATA CONCORDANCE FILE</a> that was created from the steps described above. You will see that it has all of the information about variable changes over time, but it has incomplete meta-data that describes the variables.</p>
+<p>Using the <a href="../data/LTDB-codebook.pdf">LTDB Codebook</a> copy and paste the Census definitions of each field into the “description” column.</p>
 <p>Using the <strong>category</strong> column in the file, create meaningful groups for the variables by assigning a group label to each. The LTDB codebook includes some, such as “Variable Group 1: Race and Age by Race” on page 5. Use these as a guide, but feel free to create your own taxonomy that helps you make sense of the variables.</p>
 <p>When you are done save the Excel file as a CSV. You lose the color coding when the file is converted to a CSV file, so it is easier to do the initial coding in the Excel format. Delete any empty rows before saving the CSV file (color-coded rows used for formatting only).</p>
 <p>We now have a machine-readable data dictionary. This allows us to create some tools that make the full database easier to use.</p>

@@ -64,7 +64,7 @@ The organization of data by census form is useful for census people building the
 
 We have built a new data dictionary that solves these issues. It enables searching for variables by topic and by availability for our period of study, and makes it possible to query the data dictionary in real-time while conducting analysis.  
 
-`r emo::ji("construction")`: heads up, this files does not exist yet. If you want it to exist, go down to "Lab Instructions" and look for ["Data Concordance File"](../../data/LTDB-DATA-DICTIONARY.xlsx) where you'll make it using a combination of Excel and the [codebook](../../data/LTDB-codebook.pdf) for this week's lab.
+`r emo::ji("construction")`: heads up, this files does not exist yet. If you want it to exist, go down to "Lab Instructions" and look for ["Data Concordance File"](../data/LTDB-DATA-DICTIONARY.xlsx) where you'll make it using a combination of Excel and the [codebook](../data/LTDB-codebook.pdf) for this week's lab.
 
 ```{r}
 library( tidyverse )
@@ -433,10 +433,10 @@ The end goal of data wrangling is for the data to be clean and easy to use durin
 
 ## Part 1: Data Concordance 
 
-Download the [DATA CONCORDANCE FILE](../../data/LTDB-DATA-DICTIONARY.xlsx) that was created from the steps described above. You will see that it has all of the information about variable changes over time, but it has incomplete meta-data that describes the variables. 
+Download the [DATA CONCORDANCE FILE](../data/LTDB-DATA-DICTIONARY.xlsx) that was created from the steps described above. You will see that it has all of the information about variable changes over time, but it has incomplete meta-data that describes the variables. 
 
 
-Using the [LTDB Codebook](../../data/LTDB-codebook.pdf) copy and paste the Census definitions of each field into the "description" column. 
+Using the [LTDB Codebook](../data/LTDB-codebook.pdf) copy and paste the Census definitions of each field into the "description" column. 
 
 Using the **category** column in the file, create meaningful groups for the variables by assigning a group label to each. The LTDB codebook includes some, such as "Variable Group 1: Race and Age by Race" on page 5. Use these as a guide, but feel free to create your own taxonomy that helps you make sense of the variables. 
 
