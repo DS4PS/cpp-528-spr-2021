@@ -19,7 +19,15 @@ You will apply this knowledge through an applied data project looking at neighbo
 
 You will be assigned to teams. Each team will work on the class project independently. The goal of working in a team is to put the project management principles into practice, and to get some experience collaborating on a project that is large enough that tasks must be split between members and redudancy can be used for quality assurance purposes. 
 
-## Project Management
+
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+
+## Project Management Skills
 
 The course is designed to teach standard frameworks for organizing large data projects and coordinating team efforts using tools in GitHub and R Studio.
 
@@ -40,6 +48,11 @@ These GitHub repositories provide a few examples of work that is designed to be 
 - [Traffic Stops Across Connecticut](http://trafficstops.trendct.org/data/)
 
 
+<br>
+<br>
+<hr>
+<br>
+<br>
 
 
 ## Neighborhood Change Project
@@ -62,7 +75,11 @@ New Market Tax Credits (NMTC) are mechanisms designed to catalyze economic devel
 
 We will use 2000 to 2010 as the study period and look at broad trends in neighborhood change over this decade, then examine whether neighborhoods targeted by the programs have achieved any more success than they would have without the billion of dollars in federal subsidies. 
 
-
+<br>
+<br>
+<hr>
+<br>
+<br>
 
 ## Course Cadence 
 
@@ -87,6 +104,7 @@ These analysis will mirror with following project management steps:
 * Week 07: Finalize project website and project requirements
 
 
+<br>
 <br>
 <hr>
 <br>
