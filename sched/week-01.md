@@ -33,7 +33,7 @@ Once you have completed this section you will be able to:
 
 **Required Reading:**
 
-1.  [Motivating the Topic](../motivation/) 
+1.  [Motivating the Topic](../../motivation/) 
 1.	[The “Gold Standard” for Data Science Project Management](https://towardsdatascience.com/the-gold-standard-of-data-science-project-management-13d68c9e85d6)
 
 > According to the articles, what are the key components of a good project management system in data science? 
