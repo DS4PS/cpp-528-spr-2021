@@ -1,7 +1,7 @@
 ---
 layout: lab
 title: YellowDig Topic
-image: model.svg
+image: yellowdig.png
 image-width: 150px
 ---
 
