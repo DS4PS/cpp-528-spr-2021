@@ -25,15 +25,18 @@ A recent study turns a lot of the debate on its head by using better data to tra
 
 Please [read this short blog](https://www.strongtowns.org/journal/2019/8/1/untangling-gentrification-and-displacement) on the topic. 
 
-The research raises two important questions: (1) how do we measure gentrification? And (2) how prevelant is it? 
+The research raises two important questions:
+
+1. how do we measure gentrification?   
+2. how prevelant is it?   
 
 In next week's lab on descriptive analysis of census tracts you will be asked to report on the level of gentrification you observe, which requires you to measure it. Note the diversity and nuance of some approached to measurement. For example, [THIS METHODOLOGY](https://github.com/DS4PS/cpp-528-spr-2020/blob/master/articles/gentrification/gentrification-methodology.pdf) by The Urban Displacement Project uses a taxonomy of five stages of gentrification to be more precise about the process. 
 
 For your YellowDig discussion this week propose a method for operationalizing the identification of gentrification in census data using variables in the harmonized census LTDB files. Specify: 
 
-(1) The criteria used to classify a census tract as eligible to be gentrified (a tract that is already wealthy and white cannot be further gentrified). 
-
-(2) The criteria you will use to determine whether the tract experienced gentrification between 2000 and 2010. 
+> (1) The criteria used to classify a census tract as eligible to be gentrified (a tract that is already wealthy and white cannot be further gentrified). 
+> 
+> (2) The criteria you will use to determine whether the tract experienced gentrification between 2000 and 2010. 
 
 Explain your methodology to your classmates. 
 
