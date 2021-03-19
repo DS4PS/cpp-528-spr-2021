@@ -3667,7 +3667,7 @@ window.onload = function() {
 </div>
 <div id="data-preparation-process" class="section level1">
 <h1>Data Preparation Process</h1>
-<p>Although it can be tedious at times, data wranling is one of the most important stages of the project because (1) it will be where you spend 80% of your time on most projects, and (2) it is the easiest place to introduce errors that are hard to find and can have a big effect on your final results.</p>
+<p>Although it can be tedious at times, data wrangling is one of the most important stages of the project because (1) it will be where you spend 80% of your time on most projects, and (2) it is the easiest place to introduce errors that are hard to find and can have a big effect on your final results.</p>
 <p>What all is included in data wrangling? It will vary greatly depending upon project, but the CRISP-DM model outlines the following steps:</p>
 <p><strong>Data Understanding</strong></p>
 <p>The second stage consists of collecting and exploring the input dataset. The set goal might be unsolvable using the input data, you might need to use public datasets, or even create a specific one for the set goal.</p>
@@ -3769,11 +3769,21 @@ window.onload = function() {
 <p>The end goal of data wrangling is for the data to be clean and easy to use during the analytical stage of the project. For this lab you will add meaningful metadata about the LTDB dataset to a machine-readable concordance file that will be used to greatly improve the usability of the data.</p>
 <div id="part-1-data-concordance" class="section level2">
 <h2>Part 1: Data Concordance</h2>
-<p>Download the <a href="../data/LTDB-DATA-DICTIONARY.xlsx">DATA CONCORDANCE FILE</a> that was created from the steps described above. You will see that it has all of the information about variable changes over time, but it has incomplete meta-data that describes the variables.</p>
-<p>Using the <a href="../data/LTDB-codebook.pdf">LTDB Codebook</a> copy and paste the Census definitions of each field into the “description” column.</p>
+<p>Download the <a href="../data/LTDB-DATA-DICTIONARY.xlsx">data concordance spreadsheet</a> that was created from the steps described above and store it within the <code>data/rodeo</code> directory. You will see that it has all of the information about variable changes over time, but it has incomplete meta-data that describes the variables.</p>
+<div id="caution-1" class="section level3">
+<h3>🚧 Caution 🚧</h3>
+<p>If you are unsure what the <code>data/rodeo</code> directory is, please <a href="#data-directory-structure">go back to the data directory structure</a>.</p>
+<p>Using the <a href="../data/LTDB-codebook.pdf">LTDB Codebook</a> copy and paste the Census definitions of each field into the “description” column of the data within the data concordance spreadsheet.</p>
 <p>Using the <strong>category</strong> column in the file, create meaningful groups for the variables by assigning a group label to each. The LTDB codebook includes some, such as “Variable Group 1: Race and Age by Race” on page 5. Use these as a guide, but feel free to create your own taxonomy that helps you make sense of the variables.</p>
-<p>When you are done save the Excel file as a CSV. You lose the color coding when the file is converted to a CSV file, so it is easier to do the initial coding in the Excel format. Delete any empty rows before saving the CSV file (color-coded rows used for formatting only).</p>
+<p>When you are done save the Excel file as a CSV file with in this location: <code>&quot;data/rodeo/ltdb_data_dictionary.csv&quot;</code>. Everyone should now be able to load in the dictionary in R using the following commands:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># store data dictionary file path</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>DD_FILEPATH &lt;-<span class="st"> </span>here<span class="op">::</span><span class="kw">here</span>( <span class="st">&quot;data/rodeo/ltdb_data_dictionary.csv&quot;</span> )</span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co"># import data dictionary</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a>dd &lt;-<span class="st"> </span><span class="kw">read.csv</span>( DD_FILEPATH, <span class="dt">stringsAsFactors=</span>F )</span></code></pre></div>
+<p>You lose the color coding when the file is converted to a CSV file, so it is easier to do the initial coding in the Excel format. Delete any empty rows before saving the CSV file (color-coded rows used for formatting only).</p>
 <p>We now have a machine-readable data dictionary. This allows us to create some tools that make the full database easier to use.</p>
+</div>
 </div>
 <div id="part-2-build-a-variable-filter" class="section level2">
 <h2>Part 2: Build a Variable Filter</h2>
@@ -3790,18 +3800,18 @@ window.onload = function() {
 <p>The function should return all of the rows of the dataframe that belong to the group.</p>
 <p><strong>TWO</strong>: Create a function that searches variable descriptions for a specific string and returns any variables that match. For example, if I searched for “income” I would want variables like median household income and per capita income.</p>
 <p>I would recommend making use of the <strong>grepl()</strong> function or the <a href="https://stringr.tidyverse.org/"><code>stringr</code> package</a>. Both take your search term as an argument and returns a logical vector specifying which elements matched against your term. Note the importance of the ignore case argument, and the use of regular expression anchors to specify word position.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>bag.of.words &lt;-<span class="st"> </span><span class="kw">c</span>( <span class="st">&quot;cat&quot;</span>, <span class="st">&quot;dog&quot;</span>, <span class="st">&quot;catfish&quot;</span>, <span class="st">&quot;hat&quot;</span>, <span class="st">&quot;CAT&quot;</span> )</span>
-<span id="cb7-2"><a href="#cb7-2"></a></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="kw">grepl</span>( <span class="st">&quot;cat&quot;</span>,  bag.of.words, <span class="dt">ignore.case=</span>F )</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>bag.of.words &lt;-<span class="st"> </span><span class="kw">c</span>( <span class="st">&quot;cat&quot;</span>, <span class="st">&quot;dog&quot;</span>, <span class="st">&quot;catfish&quot;</span>, <span class="st">&quot;hat&quot;</span>, <span class="st">&quot;CAT&quot;</span> )</span>
+<span id="cb8-2"><a href="#cb8-2"></a></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="kw">grepl</span>( <span class="st">&quot;cat&quot;</span>,  bag.of.words, <span class="dt">ignore.case=</span>F )</span></code></pre></div>
 <pre><code>## [1]  TRUE FALSE  TRUE FALSE FALSE</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">grepl</span>( <span class="st">&quot;cat&quot;</span>,  bag.of.words, <span class="dt">ignore.case=</span>T )</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">grepl</span>( <span class="st">&quot;cat&quot;</span>,  bag.of.words, <span class="dt">ignore.case=</span>T )</span></code></pre></div>
 <pre><code>## [1]  TRUE FALSE  TRUE FALSE  TRUE</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">grepl</span>( <span class="st">&quot;cat$&quot;</span>, bag.of.words, <span class="dt">ignore.case=</span>T )</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">grepl</span>( <span class="st">&quot;cat$&quot;</span>, bag.of.words, <span class="dt">ignore.case=</span>T )</span></code></pre></div>
 <pre><code>## [1]  TRUE FALSE FALSE FALSE  TRUE</code></pre>
 <p>You function will use a user-provided string as the only argument, and print a table of variables that match the criteria.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>these &lt;-<span class="st"> </span><span class="kw">grepl</span>( <span class="st">&quot;string&quot;</span>, vector, <span class="dt">ignore.case=</span>T )</span>
-<span id="cb13-2"><a href="#cb13-2"></a>dat.sub &lt;-<span class="st"> </span>dat[ these, ]</span>
-<span id="cb13-3"><a href="#cb13-3"></a><span class="kw">return</span>( dat.sub )</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>these &lt;-<span class="st"> </span><span class="kw">grepl</span>( <span class="st">&quot;string&quot;</span>, vector, <span class="dt">ignore.case=</span>T )</span>
+<span id="cb14-2"><a href="#cb14-2"></a>dat.sub &lt;-<span class="st"> </span>dat[ these, ]</span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="kw">return</span>( dat.sub )</span></code></pre></div>
 <p><strong>THREE</strong>: Create a function to filter variables by time periods. Specifically, the user will specify the time periods of interest for the study and the function will identify all variables that have measures for those periods. For example, I if I want to use the data for a study that covers 1990, 2000, and 2010 which variables are available for all three periods?</p>
 <p>Note that column names contain the time periods, so similar to the previous function you can use <strong>grepl()</strong> to identify all columns that meet your critera. Once you have selected the appropriate columns you need to write a logical statement that checks variable availability for each year. We do not care whether the measure comes from the full Census, the long form sample, or the ACS as long as at least one measure is availabe for each of the specified time periods.</p>
 <p>Return a table with all of the variables that meet the criteria.</p>

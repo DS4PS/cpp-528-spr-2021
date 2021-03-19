@@ -376,7 +376,7 @@ Variable transformations, however, are an important component of the modeling pr
 
 # Data Preparation Process
 
-Although it can be tedious at times, data wranling is one of the most important stages of the project because (1) it will be where you spend 80% of your time on most projects, and (2) it is the easiest place to introduce errors that are hard to find and can have a big effect on your final results. 
+Although it can be tedious at times, data wrangling is one of the most important stages of the project because (1) it will be where you spend 80% of your time on most projects, and (2) it is the easiest place to introduce errors that are hard to find and can have a big effect on your final results. 
 
 What all is included in data wrangling? It will vary greatly depending upon project, but the CRISP-DM model outlines the following steps: 
 
@@ -441,14 +441,29 @@ The end goal of data wrangling is for the data to be clean and easy to use durin
 
 ## Part 1: Data Concordance 
 
-Download the [DATA CONCORDANCE FILE](../data/LTDB-DATA-DICTIONARY.xlsx) that was created from the steps described above. You will see that it has all of the information about variable changes over time, but it has incomplete meta-data that describes the variables. 
+Download the [data concordance spreadsheet](../data/LTDB-DATA-DICTIONARY.xlsx) that was created from the steps described above and store it within the `data/rodeo` directory. You will see that it has all of the information about variable changes over time, but it has incomplete meta-data that describes the variables.
+
+### `r emo::ji("construction")` Caution `r emo::ji("construction")`
+
+If you are unsure what the `data/rodeo` directory is, please [go back to the data directory structure](#data-directory-structure).
 
 
-Using the [LTDB Codebook](../data/LTDB-codebook.pdf) copy and paste the Census definitions of each field into the "description" column. 
+Using the [LTDB Codebook](../data/LTDB-codebook.pdf) copy and paste the Census definitions of each field into the "description" column of the data within the data concordance spreadsheet. 
 
 Using the **category** column in the file, create meaningful groups for the variables by assigning a group label to each. The LTDB codebook includes some, such as "Variable Group 1: Race and Age by Race" on page 5. Use these as a guide, but feel free to create your own taxonomy that helps you make sense of the variables. 
 
-When you are done save the Excel file as a CSV. You lose the color coding when the file is converted to a CSV file, so it is easier to do the initial coding in the Excel format. Delete any empty rows before saving the CSV file (color-coded rows used for formatting only). 
+When you are done save the Excel file as a CSV file with in this location: `"data/rodeo/ltdb_data_dictionary.csv"`. Everyone should now be able to load in the dictionary in R using the following commands:
+
+```r
+# store data dictionary file path
+DD_FILEPATH <- here::here( "data/rodeo/ltdb_data_dictionary.csv" )
+
+# import data dictionary
+dd <- read.csv( DD_FILEPATH, stringsAsFactors=F )
+```
+
+
+You lose the color coding when the file is converted to a CSV file, so it is easier to do the initial coding in the Excel format. Delete any empty rows before saving the CSV file (color-coded rows used for formatting only). 
 
 We now have a machine-readable data dictionary. This allows us to create some tools that make the full database easier to use. 
 
