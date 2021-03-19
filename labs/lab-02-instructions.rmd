@@ -16,7 +16,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE, message=F, warning=F, eval=T)
 ```
 
-For this lab you will work on preparing your dataset for analysis and streamlining the process of making sense of the data by improving the documentation and by writing some helper functions that will allow you to query the Longitudinal Tracts Data Base to search for the variables you need for your analysis. 
+For this lab you will work on preparing your dataset for analysis and streamlining the process of making sense of the data by improving the documentation and by writing some helper functions that will allow you to query the Longitudinal Tracts Data Base (LTDB) to search for the variables you need for your analysis. **[To go to the lab instructions, click here](#lab-instructions).**
 
 
 
@@ -41,7 +41,7 @@ The database currently has the following issues:
 * Datasets lack sufficient meta-data describing census tracts needed for most analysis. 
 * Datasets are organized by census tables instead of by time periods, making it hard to join them. 
 * The format of unique IDs needed to merge data changes.
-* The 2010 data is inconsitently labeled as either 2010 or 2012, depending on the source. 
+* The 2010 data is inconsistently labeled as either 2010 or 2012, depending on the source. 
 
 ## Solutions 
 
@@ -62,26 +62,33 @@ The variables are measured at the Census Tract level using 2010 census tracts. E
 
 The organization of data by census form is useful for census people building the datasets, but awkward for anyone trying to use the data. It forces the user to look at many more datasets than necessary when searching for variables. It also forces the user to conduct additional merges. 
 
-We have built a new data dictionary that solves these issues. It enables searching for variables by topic and by availability for our period of study, and makes it possible to query the data dictionary in real-time while conducting analysis.  
+We have built a new data dictionary that solves these issues. It enables searching for variables by topic and by availability for our period of study, and makes it possible to query the data dictionary in real-time while conducting analysis. 
 
-`r emo::ji("construction")`: heads up, this files does not exist yet. If you want it to exist, go down to "Lab Instructions" and look for ["Data Concordance File"](../data/LTDB-DATA-DICTIONARY.xlsx) where you'll make it using a combination of Excel and the [codebook](../data/LTDB-codebook.pdf) for this week's lab.
+### Optional code walkthrough
+
+This code walks through how the data concordance file was created. **You do not need it to complete lab 02**. It exists solely to provide you context for how this file was created.
 
 ```{r}
 library( tidyverse )
 library( here )
 library( pander )
-
-# store data dictionary file path
-DD_FILEPATH <- here::here( "data/rodeo/ltdb_data_dictionary.csv" )
 ```
+
+#### `r emo::ji("construction")` Caution `r emo::ji("construction")`
+
+The `here::here( "data/rodeo/ltdb_data_dictionary.csv" )` file does not exist yet. If you want it to exist, go down to ["Lab Instructions"](#lab-instructions) and look for ["Data Concordance File"](../data/LTDB-DATA-DICTIONARY.xlsx) where you'll make it using a combination of Excel and the [codebook](../data/LTDB-codebook.pdf) for this week's lab.
 
 ```{r}
+# store data dictionary file path
+DD_FILEPATH <- here::here( "data/rodeo/ltdb_data_dictionary.csv" )
+
 # import data dictionary
 dd <- read.csv( DD_FILEPATH, stringsAsFactors=F )
-```
 
-```{r, echo=F}
-dd <- select( dd, - root2 )
+# remove the second root column
+dd <- select( dd, -root2 )
+
+# view a subset of columns 
 dd[ c(1:5,15:17), ] %>% pander()
 ```
 
