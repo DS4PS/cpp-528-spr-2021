@@ -1,5 +1,5 @@
 ---
-title: 'Lab 02 - Preparing Data For Analysis'
+title: 'Lab 02 context: how data concordance file was created'
 date: '`r format(Sys.time(), "%B %d, %Y")`'
 output:
   rmdformats::downcute:
@@ -16,20 +16,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE, message=F, warning=F, eval=T)
 ```
 
-For this lab you will work on preparing your dataset for analysis and streamlining the process of making sense of the data by improving the documentation and by writing some helper functions that will allow you to query the Longitudinal Tracts Data Base (LTDB) to search for the variables you need for your analysis. **[To go to the lab instructions, click here](#lab-instructions).**
-
-
-
-# Building Better Datasets
-
-The LTDB is a great resource for over-time analysis of communities because they have harmonized 40 years of census data by apportioning old data so it fits the new 2010 census tracts and allows for analysis of consistent geographic units over time (if you are changing your tract boundaries and adding more tracts but not changing older data your analysis will be completely meaningless). 
-
-Unfortunately, they have done an OK job a documentation but a horrible job at making the data easy to use. 
-
-To overcome this we are going to restructure our input census datasets to enable us to fully utilize the over-time aspects of the data. 
-
-We are also going to build a machine-readable data dictionary to allow us to find the variables we need quickly using some custom functions you will write. 
-
+This is optional reading to give you more context in Lab 02. It summarizes how the data concordance `.xlsx` file was created for the Longitudinal Tracts Data Base (LTDB) data set.
 
 ## Current Issues With LTDB Data
 
@@ -43,53 +30,24 @@ The database currently has the following issues:
 * The format of unique IDs needed to merge data changes.
 * The 2010 data is inconsistently labeled as either 2010 or 2012, depending on the source. 
 
-## Solutions 
-
-The data is currently organized into 10 tables:
-
-* 1970 variables from the census long form (sample)
-* 1970 variables from the full census (full)
-* 1980 variables from the census long form (sample)
-* 1980 variables from the full census (full)
-* 1990 variables from the census long form (sample)
-* 1990 variables from the full census (full)
-* 2000 variables from the census long form (sample)
-* 2000 variables from the full census (full)
-* 2010 variables from the American Community Survey (sample)
-* 2010 variables from the full census (full)
-
-The variables are measured at the Census Tract level using 2010 census tracts. Even though the tracts are consistent across all of the data the meta-data describing tracts is sparse and inconsistent. 
-
-The organization of data by census form is useful for census people building the datasets, but awkward for anyone trying to use the data. It forces the user to look at many more datasets than necessary when searching for variables. It also forces the user to conduct additional merges. 
-
-We have built a new data dictionary that solves these issues. It enables searching for variables by topic and by availability for our period of study, and makes it possible to query the data dictionary in real-time while conducting analysis. 
-
-### Optional code walkthrough
-
-This code walks through how the data concordance file was created. **You do not need it to complete lab 02**. It exists solely to provide you context for how this file was created.
+## Creating the data concordance file
 
 ```{r}
-# load necessary packages
 library( tidyverse )
 library( here )
 library( pander )
-```
 
-#### `r emo::ji("construction")` Caution `r emo::ji("construction")`
-
-The `here::here( "data/rodeo/ltdb_data_dictionary.csv" )` file does not exist yet. If you want it to exist, go down to ["Lab Instructions"](#lab-instructions) and look for ["Data Concordance File"](../data/LTDB-DATA-DICTIONARY.xlsx) where you'll make it using a combination of Excel and the [codebook](../data/LTDB-codebook.pdf) for this week's lab.
-
-```{r}
 # store data dictionary file path
 DD_FILEPATH <- here::here( "data/rodeo/ltdb_data_dictionary.csv" )
+```
 
+```{r}
 # import data dictionary
 dd <- read.csv( DD_FILEPATH, stringsAsFactors=F )
+```
 
-# remove the second root column
-dd <- select( dd, -root2 )
-
-# view a subset of columns 
+```{r, echo=F}
+dd <- select( dd, - root2 )
 dd[ c(1:5,15:17), ] %>% pander()
 ```
 
