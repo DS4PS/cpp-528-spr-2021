@@ -1,12 +1,16 @@
 ---
 title: 'Data Steps'
+date: '`r format(Sys.time(), "%B %d, %Y")`'
 output:
-  html_document:
-    theme: readable
-    df_print: paged
+  rmdformats::downcute:
+    self_contained: true
+    thumbnails: true
+    lightbox: true
+    gallery: false
     highlight: tango
-    toc: yes
-    toc_float: no
+    df_print: paged
+    includes:
+      after_body: 'footer.html'
 ---
 
 # Tutorial on cleaning the LTDB 
@@ -31,6 +35,7 @@ To re-run the tutorial locally, follow these steps:
 3. Paste the `.rmd` code into the blank text file.
 4. Save the blank test file in `labs/wk03/data_steps.rmd`. You do not **have** to store it in the WK03 sub-directory but you **must** save the file with the file extension `.rmd`.
 5. Click on the `Knit` to knit the results to a HTML file and to produce all of the clean data files within `data/rodeo`.
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set( echo=TRUE, message=F, warning=F, eval=T )
 ```
@@ -44,11 +49,6 @@ library( here )
 library( knitr )
 library( pander )
 ```
-
-
-
-
-
 
 # Inspect Data
 
@@ -72,12 +72,11 @@ sum( d.2010.samp$p65hsp12 == "-999" )
 summary( as.numeric(d.2010.samp$p65hsp12) )
 ```
 
-We have problems with missing data coded as -999, which will cause issues with any analysis. 
+We have problems with missing data coded as `-999`, which will cause issues with any analysis. 
 
 ## Remove Missing Value Codes
 
-Remove missing value codes "-999" and replace with variable mean or NAs. 
-
+Remove missing value codes `-999` and replace with variable mean or NAs. 
 
 ```{r remove missing value codes}
 # convert variables to numeric
@@ -118,17 +117,9 @@ summary( d.2010.samp$p65hsp12 ) %>% pander()
 
 That works!
 
-
-
-
-
-
-
-
 # Tidy Up Dataframes
 
 We want to standardize datasets across all of the years so that they are all clean, have the same structure, same variable name conventions, etc. 
-
 
 ```{r create standardization functions}
 # FIX VARIABLE NAMES
@@ -173,9 +164,6 @@ fix_ids <- function( x )
 }
 
 
-
-
-
 tidy_up_data <- function( file.name )
 {
   # store the file path as a character vector
@@ -213,7 +201,7 @@ Test code:
 
 The following is set to `eval=FALSE` because it's not required for you to generate the final outputs.
 
-*Note: `tidy_up_data()` is able to read in the data because it is not import files using static file paths. Notice the use of `here::here()` up above in the `tidy_up_data()` source code up above.* 
+*Note: `tidy_up_data()` is able to read in the data because it is not importing files using static file paths. Notice the use of `here::here()` up above in the `tidy_up_data()` source code up above.* 
 
 ```{r test tidy_up_data() function, eval=F}
 file.name <- "ltdb_std_2010_sample.csv"
