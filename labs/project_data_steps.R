@@ -23,7 +23,11 @@ for (relevant_file in RELEVANT_FILES) {
   build_year(fn1 = relevant_file[["fullcount"]],
              fn2 = relevant_file[["sample"]],
              year = relevant_file[["year"]])
-  print("Finished! Moving onto the next decade.")
+  if (relevant_file[["year"]] < 2010) {
+    print("Finished! Moving onto the next decade.")
+  } else {
+    print("Finished! No more data to parse.")
+  }
 }
 
 # load the crosswalk ----

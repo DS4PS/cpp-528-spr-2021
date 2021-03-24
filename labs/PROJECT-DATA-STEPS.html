@@ -237,7 +237,7 @@
 </div>
 <div id="make-two-local-copies-of-the-two-.r-files" class="section level2">
 <h2>Make two local copies of the two <code>.R</code> files</h2>
-<p>This HTML file is meant for you to nicely view the data cleaning steps from you laptop. However, you need the files produced by the following two <code>.R</code> files for future labs so please read the direction below carefully.</p>
+<p>This HTML file is meant for you to view the data cleaning steps in the browser. However, you need the files produced by the following two <code>.R</code> files for future labs so please read the direction below carefully.</p>
 <p>To create the necessary files for future labs, follow these steps:</p>
 <ol style="list-style-type: decimal">
 <li>Open a blank text file in RStudio by going to <code>File</code> –&gt; <code>New File</code> –&gt; <code>Text File</code>.</li>
@@ -414,8 +414,13 @@
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">build_year</span>(<span class="at">fn1 =</span> relevant_file[[<span class="st">&quot;fullcount&quot;</span>]],</span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">fn2 =</span> relevant_file[[<span class="st">&quot;sample&quot;</span>]],</span>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">year =</span> relevant_file[[<span class="st">&quot;year&quot;</span>]])</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Finished! Moving onto the next decade.&quot;</span>)</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (relevant_file[[<span class="st">&quot;year&quot;</span>]] <span class="sc">&lt;</span> <span class="dv">2010</span>) {</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;Finished! Moving onto the next decade.&quot;</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;Finished! No more data to parse.&quot;</span>)</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;Starting on 1970&quot;
 ## [1] &quot;Finished! Moving onto the next decade.&quot;
 ## [1] &quot;Starting on 1980&quot;
@@ -425,7 +430,7 @@
 ## [1] &quot;Starting on 2000&quot;
 ## [1] &quot;Finished! Moving onto the next decade.&quot;
 ## [1] &quot;Starting on 2010&quot;
-## [1] &quot;Finished! Moving onto the next decade.&quot;</code></pre>
+## [1] &quot;Finished! No more data to parse.&quot;</code></pre>
 <p>Check a file:</p>
 <p><em>Note: Notice the use of <code>here::here()</code> below when importing data.</em></p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import the clean file </span></span>
