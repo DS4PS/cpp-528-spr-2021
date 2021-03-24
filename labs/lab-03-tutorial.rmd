@@ -1,13 +1,16 @@
 ---
 title: 'Descriptive Analysis of Community Change'
+date: '`r format(Sys.time(), "%B %d, %Y")`'
 output:
-  html_document:
-    theme: readable
-    df_print: paged
+  rmdformats::downcute:
+    self_contained: true
+    thumbnails: true
+    lightbox: true
+    gallery: false
     highlight: tango
-    toc: yes
-    toc_float: no
-    css: 'lab-instructions.css'
+    df_print: paged
+    includes:
+      after_body: 'footer.html'
 ---
 
 ```{r setup, include=FALSE}
@@ -15,7 +18,15 @@ knitr::opts_chunk$set( echo=TRUE, message=F, warning=F, eval=T, fig.width=10 )
 ```
 
 
+# Introduction
 
+This is a tutorial that shows you some common preprocessing steps you will need to do in this week's lab.
+
+## Please use the `import::here` function
+
+This tutorial does not use `import::here()` but your submission for week 03 requires its usage. The code is kept here in order to help you understand why certain decisions were made.
+
+If you need to see how to use the `import::here()` function, please see the ["Project Data Steps" tutorial](PROJECT-DATA-STEPS.html).
 
 
 ```{r}
@@ -82,10 +93,14 @@ The following chunks depend on you having clean data in your `data/rodeo` folder
 To re-run the tutorial locally, follow these steps:
 
 1. Open a blank text file in RStudio by going to `File` --> `New File` --> `Text File`.
-2. [Copy the raw `.rmd` file](https://raw.githubusercontent.com/DS4PS/cpp-528-fall-2020/master/labs/PROJECT-DATA-STEPS.rmd);
-3. Paste the `.rmd` code into the blank text file.
-4. Save the blank test file in `labs/wk03/data_steps.rmd`. You do not **have** to store it in the WK03 sub-directory but you **must** save the file with the file extension `.rmd`.
-5. Click on the `Knit` to knit the results to a HTML file and to produce all of the clean data files within `data/rodeo`.
+2. [Copy the raw `labs/utilities.R` file](labs/utilities.R);
+3. Paste the `.R` code into the blank text file.
+4. Save the blank test file in `labs/wk03/utilities.R`.
+5. Open a blank text file in RStudio by going to `File` --> `New File` --> `Text File`.
+6. [Copy the raw `labs/project_data_steps.R` file](labs/project_data_steps.R);
+7. Paste the `.R` code into the blank text file.
+8. Save the blank test file in `labs/wk03/project_data_steps.R`.
+9. Run the newly created [`labs/project_data_steps.R`](labs/project_data_steps.R) file to produce all of the clean data files within `data/rodeo`.
 
 ```{r}
 # note: please do not use static file paths
