@@ -26,7 +26,7 @@ The following chunks depend on you having clean data in your `data/rodeo` folder
 
 ## Make two local copies of the two `.R` files
 
-This HTML file is meant for you to nicely view the data cleaning steps from you laptop. However, you need the files produced by the following two `.R` files for future labs so please read the direction below carefully.
+This HTML file is meant for you to view the data cleaning steps in the browser. However, you need the files produced by the following two `.R` files for future labs so please read the direction below carefully.
 
 To create the necessary files for future labs, follow these steps:
 
@@ -188,7 +188,12 @@ for (relevant_file in RELEVANT_FILES) {
   build_year(fn1 = relevant_file[["fullcount"]],
              fn2 = relevant_file[["sample"]],
              year = relevant_file[["year"]])
-  print("Finished! Moving onto the next decade.")
+  if (relevant_file[["year"]] < 2010) {
+    print("Finished! Moving onto the next decade.")
+  } else {
+    print("Finished! No more data to parse.")
+  }
+  
 }
 ```
 
