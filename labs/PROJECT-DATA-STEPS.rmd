@@ -31,14 +31,14 @@ This HTML file is meant for you to nicely view the data cleaning steps from you 
 To create the necessary files for future labs, follow these steps:
 
 1. Open a blank text file in RStudio by going to `File` --> `New File` --> `Text File`.
-2. [Copy the raw `labs/utilities.R` file](labs/utilities.R);
+2. [Copy the raw `labs/utilities.R` file](utilities.R);
 3. Paste the `.R` code into the blank text file.
 4. Save the blank test file in `labs/wk03/utilities.R`.
 5. Open a blank text file in RStudio by going to `File` --> `New File` --> `Text File`.
-6. [Copy the raw `labs/project_data_steps.R` file](labs/project_data_steps.R);
+6. [Copy the raw `labs/project_data_steps.R` file](project_data_steps.R);
 7. Paste the `.R` code into the blank text file.
 8. Save the blank test file in `labs/wk03/project_data_steps.R`.
-9. Run the newly created [`labs/project_data_steps.R`](labs/project_data_steps.R) file to produce all of the clean data files within `data/rodeo`.
+9. Run the newly created [`labs/project_data_steps.R`](project_data_steps.R) file to produce all of the clean data files within `data/rodeo`.
 
 
 ```{r setup, include=FALSE}
