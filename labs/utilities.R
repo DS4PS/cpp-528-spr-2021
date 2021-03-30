@@ -110,10 +110,10 @@ build_year <- function( fn1, fn2, year )
 {
 
   d1 <- tidy_up_data( fn1 )
-  d1 <- select( d1, - type )
+  d1 <- dplyr::select( d1, - type )
 
   d2 <- tidy_up_data( fn2 )
-  d2 <- select( d2, - type )
+  d2 <- dplyr::select( d2, - type )
 
   d3 <- merge( d1, d2, by=c("year","tractid"), all=T )
 
