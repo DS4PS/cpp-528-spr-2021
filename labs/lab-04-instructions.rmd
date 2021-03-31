@@ -1,24 +1,17 @@
 ---
 title: 'Lab 04 - Predicting MHV Change'
+date: '`r format(Sys.time(), "%B %d, %Y")`'
 output:
-  html_document:
-    theme: readable
-    df_print: paged
+  rmdformats::downcute:
+    self_contained: true
+    thumbnails: true
+    lightbox: true
+    gallery: false
     highlight: tango
-    toc: yes
-    toc_float: no
-    css: 'lab-instructions.css'
+    df_print: paged
     includes:
       after_body: 'footer.html'
 ---
-
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message=F, warning=F, eval=T)
-library( dplyr )
-library( pander )
-```
-
 
 <br>
 
@@ -64,6 +57,15 @@ Explain your findings to a general audience.
 <br>
 
 # Submission Instructions
+
+* your separate `.R` file that stores your data processing steps
+    + You do not have to call it `utilities.R` anymore, feel free to call it whatever you like.
+* your knitted RMD file that answers the questions posed above.
+     + If your RMD file looks exactly like the [tutorial](lab-04-instructions.html), you will not get full credit.
+     + This is because the tutorial is meant to show you what the data preprocessing steps should look like; not where they should live (which is in a separate `.R` file).
+     + This tutorial also has **extra material meant to teach you concepts**. The non technical audience does not need to see this information so exclude it from your work when you submit your lab.
+     + **You need to use `import::here()` function and import specific objects** rather than doing all of your data processing within the `.rmd` file. If you need a tutorial on how to use this, please see the ["Project Data Steps" tutorial](PROJECT-DATA-STEPS.html).
+* your HTML output of your RMD file
 
 Record your work in an RMD file where you can document your code and responses to the questions. Knit your RMD file and include your rendered HTML file. 
 

@@ -1,24 +1,27 @@
 ---
 title: 'Tutorial on Predicting MHV Change'
+date: '`r format(Sys.time(), "%B %d, %Y")`'
 output:
-  html_document:
-    theme: readable
-    df_print: paged
+  rmdformats::downcute:
+    fig_width: 12
+    fig_height: 9
+    self_contained: true
+    thumbnails: true
+    lightbox: true
+    gallery: false
     highlight: tango
-    toc: yes
-    toc_float: no
-    css: 'lab-instructions.css'
+    df_print: paged
+    includes:
+      after_body: 'footer.html'
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set( echo=TRUE, message=F, warning=F, eval=T, fig.width=10 )
+knitr::opts_chunk$set( echo=TRUE, message=F, warning=F, eval=T)
 ```
 
 
-
-
-
 ```{r}
+# load necessary packages ----
 library( dplyr )
 library( here )
 library( knitr )
@@ -26,86 +29,23 @@ library( pander )
 library( stargazer )
 library( scales )
 
+# set randomization seed ----
 set.seed( 1234 )
 
-# set stargazer type to text for 
-# previewing in RMD docs but
-# convert to type HTML when knitting
-# (next code chunk)
-
-s.type <- "text"  
+# load necessary functions and objects ----
+# note: all of these are R objects that will be used throughout this .rmd file
+import::here("S_TYPE",
+             "panel.cor",
+             "panel.smooth",
+             "jplot",
+             "d",
+             "df",
+             "cbsa_stats_df",
+             # notice the use of here::here() that points to the .R file
+             # where all these R objects are created
+             .from = here::here("labs/lab_04_source.R"),
+             .character_only = TRUE)
 ```
-
-
-
-```{r, echo=T}
-###################################
-#
-#     STARGAZER SETTINGS
-#
-###################################
-
-# DO NOT RUN CHUNK UNLESS KNITTING:
-# changes table formats to html
-# before rendering RMD docs
-
-s.type <- "html"
-```
-
-
-
-Helper functions for the **pairs()** correlation table: 
-
-```{r}
-panel.cor <- function(x, y, digits=2, prefix="", cex.cor)
-{
-    usr <- par("usr"); on.exit(par(usr))
-    par(usr = c(0, 1, 0, 1))
-    r <- abs(cor(x, y))
-    txt <- format(c(r, 0.123456789), digits=digits)[1]
-    txt <- paste(prefix, txt, sep="")
-    if(missing(cex.cor)) cex <- 0.8/strwidth(txt)
-    
-    test <- cor.test(x,y)
-    # borrowed from printCoefmat
-    Signif <- symnum(test$p.value, corr = FALSE, na = FALSE,
-                  cutpoints = c(0, 0.001, 0.01, 0.05, 0.1, 1),
-                  symbols = c("***", "**", "*", ".", " "))
-    
-    text(0.5, 0.5, txt, cex = 1.5 )
-    text(.7, .8, Signif, cex=cex, col=2)
-}
-
-panel.smooth <- function (x, y, col = par("col"), bg = NA, pch = par("pch"), 
-	cex = 0.5, col.smooth = "red", span = 2/3, iter = 3, ...) 
-{
-	points(x, y, pch = 19, col = gray(0.7,0.2), bg = bg, cex = cex)
-	ok <- is.finite(x) & is.finite(y)
-	if (any(ok)) 
-		lines(stats::lowess(x[ok], y[ok], f = span, iter = iter), 
-			col = col.smooth, lwd=2, ...)
-}
-
-# custom plot
-jplot <- function( x1, x2, lab1="", lab2="", draw.line=T, ... )
-{
-
-	plot( x1, x2,
-	      pch=19, 
-	      col=gray(0.6, alpha = 0.2), 
-	      cex=0.5,  
-	      bty = "n",
-	      xlab=lab1, 
-	      ylab=lab2, cex.lab=1.5,
-        ... )
-
-	if( draw.line==T ){ 
-		ok <- is.finite(x1) & is.finite(x2)
-		lines( lowess(x2[ok]~x1[ok]), col="red", lwd=3 ) }
-
-}
-```
-
 
 
 # Hedonic Housing Models 
@@ -153,122 +93,29 @@ Change diven by real estate speculation or by driving middle class families out 
 
 In short, we will pay attention to the nuances of gentrification, but generally speaking we will interpret an increase in home value being a signal that both the housing stock and the quality of the neighborhood have improved. 
 
-
-
-
-
 # Data
 
 Load your wrangled datasets and prepare your variables for analysis:
 
-
-```{r}
-# remember to use the here::here() function
-d1 <- readRDS( here::here( "data/rodeo/LTDB-2000.rds" ) )
-d2 <- readRDS( here::here( "data/rodeo/LTDB-2010.rds" ) )
-md <- readRDS( here::here( "data/rodeo/LTDB-META-DATA.rds" ) )
-
-d1 <- select( d1, - year )
-d2 <- select( d2, - year )
-
-d <- merge( d1, d2, by="tractid" )
-d <- merge( d, md, by="tractid" )
-```
-
-
-
-
-**Filter Rural Districts**
-
-```{r}
-table( d$urban )
-d <- filter( d, urban == "urban" )
-```
-
-
-
-
-**Create New Variables**
-
-```{r}
-# pro tip when getting started
-# and exploring a lot of variables
-# while making changes to your dataset:
-
-d.full <- d  # keep a copy so you don't have to reload 
-```
-
-
-You will want to create more variables, but these examples will get you started. 
-
-
-```{r}
-d <- d.full  # reset to the original dataset
-
-d <- select( d, tractid, 
-             mhmval00, mhmval12, 
-             hinc00, 
-             hu00, vac00, own00, rent00, h30old00,
-             empclf00, clf00, unemp00, prof00,  
-             dpov00, npov00,
-             ag25up00, hs00, col00, 
-             pop00.x, nhwht00, nhblk00, hisp00, asian00,
-             cbsa, cbsaname )
-
- 
-d <- 
-  d %>%
-  mutate( p.white = 100 * nhwht00 / pop00.x,
-          p.black = 100 * nhblk00 / pop00.x,
-          p.hisp = 100 * hisp00 / pop00.x, 
-          p.asian = 100 * asian00 / pop00.x,
-          p.hs = 100 * (hs00+col00) / ag25up00,
-          p.col = 100 * col00 / ag25up00,
-          p.prof = 100 * prof00 / empclf00,
-          p.unemp = 100 * unemp00 / clf00,
-          p.vacant = 100 * vac00 / hu00,
-          mhv.change.00.to.10 = mhmval12 - mhmval00,
-          p.mhv.change = 100 * (mhmval12 - mhmval00) / mhmval00,
-          pov.rate = 100 * npov00 / dpov00 )
-
-
-# adjust 2000 home values for inflation 
-mhv.00 <- d$mhmval00 * 1.28855  
-mhv.10 <- d$mhmval12
-
-# change in MHV in dollars
-mhv.change <- mhv.10 - mhv.00
-
-
-# drop low 2000 median home values
-# to avoid unrealistic growth rates.
-#
-# tracts with homes that cost less than
-# $10,000 are outliers
-mhv.00[ mhv.00 < 1000 ] <- NA
-
-# change in MHV in percent
-mhv.growth <- 100 * ( mhv.change / mhv.00 )
-
-d$mhv.00 <- mhv.00
-d$mhv.10 <- mhv.10
-d$mhv.change <- mhv.change
-d$mhv.growth <- mhv.growth 
-```
-
+## Full data set
 
 ```{r, echo=F}
+# full data set
 head( d ) 
 ```
 
+## A few columns from the full data set
 
+```{r, echo=F}
+# mini data set
+head( df ) 
+```
 
 
 **Median Home value**
 
-
 ```{r}
-hist( mhv.00, breaks=200, xlim=c(0,500000), 
+hist( df$MedianHomeValue2000, breaks=200, xlim=c(0,500000), 
       col="gray20", border="white",
       axes=F, 
       xlab="MHV (median = $138k)",
@@ -278,49 +125,27 @@ hist( mhv.00, breaks=200, xlim=c(0,500000),
 axis( side=1, at=seq(0,500000,100000), 
       labels=c("$0","$100k","$200k","$300k","$400k","$500k") )
 
-abline( v=median( mhv.00, na.rm=T ), col="orange", lwd=3 )
+abline( v=median( df$MedianHomeValue2000, na.rm=T ), col="orange", lwd=3 )
 ```
-
-
-
-
-
-
-
 
 **Descriptives** 
 
-
-
 ```{r, results="asis"}
-
-df <- data.frame( MedianHomeValue2000=mhv.00, 
-                  MedianHomeValue2010=mhv.10, 
-                  MHV.Change.00.to.10=mhv.change,
-                  MHV.Growth.00.to.12=mhv.growth )
-
 stargazer( df, 
-           type=s.type, 
+           type=S_TYPE, 
            digits=0, 
            summary.stat = c("min", "p25","median","mean","p75","max") )
 ```
 
 
-
-
-
-
-
-
 **Change in MHV 2000-2010**
-
 
 If a home worth \$10 million increased in value by \$100k over ten years it would not be that surprising. If a home worth \$50k increased by \$100k over the same period that is a growth of 200% and is notable. 
 
 The change in value variable only reports absolute change, but does not provide a sense of whether that is a big or small amount for the census tract. 
 
 ```{r, fig.height=6}
-hist( mhv.change/1000, breaks=500, 
+hist( df$MHV.Change.00.to.10/1000, breaks=500, 
       xlim=c(-100,500), yaxt="n", xaxt="n",
       xlab="Thousand of US Dollars (adjusted to 2010)", cex.lab=1.5,
       ylab="", main="Change in Median Home Value 2000 to 2010",
@@ -329,13 +154,13 @@ hist( mhv.change/1000, breaks=500,
 axis( side=1, at=seq( from=-100, to=500, by=100 ), 
       labels=paste0( "$", seq( from=-100, to=500, by=100 ), "k" ) )
         
-mean.x <- mean( mhv.change/1000, na.rm=T )
+mean.x <- mean( df$MHV.Change.00.to.10/1000, na.rm=T )
 abline( v=mean.x, col="darkorange", lwd=2, lty=2 )
 text( x=200, y=1500, 
       labels=paste0( "Mean = ", dollar( round(1000*mean.x,0)) ), 
       col="darkorange", cex=1.8, pos=3 )
 
-median.x <- median( mhv.change/1000, na.rm=T )
+median.x <- median( df$MHV.Change.00.to.10/1000, na.rm=T )
 abline( v=median.x, col="dodgerblue", lwd=2, lty=2 )
 text( x=200, y=2000, 
       labels=paste0( "Median = ", dollar( round(1000*median.x,0)) ), 
@@ -351,7 +176,7 @@ Plot the percent change variable:
 
 ```{r, fig.height=6}
 hg <-
-hist( mhv.growth, breaks=5000, 
+hist( df$MHV.Growth.00.to.12, breaks=5000, 
       xlim=c(-100,200), yaxt="n", xaxt="n",
       xlab="", cex.main=1.5,
       ylab="", main="Growth in Home Value by Census Tract 2000 to 2010",
@@ -362,26 +187,18 @@ axis( side=1, at=seq( from=-100, to=200, by=50 ),
 
 ymax <- max( hg$count )
         
-mean.x <- mean( mhv.growth, na.rm=T )
+mean.x <- mean( df$MHV.Growth.00.to.12, na.rm=T )
 abline( v=mean.x, col="darkorange", lwd=2, lty=2 )
 text( x=100, y=(0.5*ymax), 
       labels=paste0( "Mean = ", round(mean.x,0), "%"), 
       col="darkorange", cex=1.8, pos=4 )
 
-median.x <- median( mhv.growth, na.rm=T )
+median.x <- median( df$MHV.Growth.00.to.12, na.rm=T )
 abline( v=median.x, col="dodgerblue", lwd=2, lty=2 )
 text( x=100, y=(0.6*ymax), 
       labels=paste0( "Median = ", round(median.x,0), "%"), 
       col="dodgerblue", cex=1.8, pos=4 )
 ```
-
-
-
-
-
-
-
-
 
 **Metro Level Statistics** 
 
@@ -391,21 +208,9 @@ Both changes within a census tract and changes within a city can affect the pric
 You might want to calculate several metro-level statistics for your model (growth in population in the city, changes in demographics, changes in industry structure and wealth, for example). You can calculate a metro level statistic by aggregating up (population count) or averaging across census tracts. For example: 
 
 ```{r}
-# average growth in median home value for the city
-cbsa_stats_df <- 
-  d %>%
-  group_by( cbsaname ) %>%
-  summarize( metro.mhv.change = median( mhv.change, na.rm=T ),
-             metro.mhv.growth = 100 * median( mhv.growth, na.rm=T ) ) %>%
-  ungroup() 
-
 # view results
 cbsa_stats_df %>% head()
 ```
-
-
-
-
 
 # Modeling Change
 
@@ -415,10 +220,6 @@ In the following lab we will then add our policy variables - measures of governm
 
 Typically you will start with a simple model of the relationship of the policy and the outcome and add controls to improve the model. In some cases, especially when you have a large amount of data like this, it can be helpful building your models from the ground up starting with the controls. This ensures you understand all the specification considerations of your model before adding the one variable you care about. If your baseline model does not improve when adding the policy variable chances are the policy is not generating much impact. 
 
-
-
-
-
 ## Variable Selection 
 
 Variable selection is the process of picking the **variables** and their **functional form** that you will include in the model. 
@@ -426,7 +227,6 @@ Variable selection is the process of picking the **variables** and their **funct
 It is one of the most important steps in the process, but also it is an art, not a science. 
 
 The goal in evaluation models is to **achieve strong model fit** while **accounting for competing hypothses** (alternative explanations to the assertion that the program or policy caused the change we see in the data).
-
 
 ## Types of Measures 
 
@@ -439,8 +239,6 @@ Population density, on the other hand, might be meaningful. The growth of the ci
 The number of white people in a tract might not be meaningful, but the proportion of white people in a tract (a measure of diversity) likely is. 
 
 So pay attention to how you are constructing variables, and whether the way you are presenting a variable (unit of analysis, time period, and count versus proportion) makes sense. 
-
-
 
 ## Challenges in Variable Selection 
 
@@ -482,9 +280,6 @@ School quality has been a huge factor in driving the migration of the upper midd
 Understanding some of the basic factors driving change can help you identify variables that can serve as proxies for some of these factors. 
 
 It is helpful to test your understanding of your policy domain by trying to explain the main drivers of change to a hypothetical undergraduate student. Is the idea clear enough in your own mind to explain it to another person? How confident do you feel in your story? If you don't feel comfortable with this exercise, perhaps you should do some more background reading and reflection before you try to model anything!
-
-
-
 
 ## P-Value Hacking 
 
@@ -537,12 +332,6 @@ As you are learning during the project, sharing data and code is a non-trivial t
 
 Most importantly, awareness of the challenges of working with data should remind you to be diligent and humble. The next part of this tutorial will highlight some of the challenges of model specification to emphasize that caution and humility are required when doing data analytics. Running regressions and interpretting coefficients is the easy part. Being confident that you are explaining the world with any veracity is the hard part. It takes a lot of practice to become comfortable with the process, but it also takes a commitment to curiosity, a self-awareness about the process to avoid any aggregious types of p-hacking, and the willingness to test your assumptions.
 
-
-
-
-
-
-
 # Specification 
 
 Specification is the process of selecting variables and their functional form for your model. 
@@ -561,8 +350,6 @@ Many problems are subtle. For example, maybe you are very comfortable with the f
 
 A good data scientist is always paranoid about problems in the data that you are hard to see, especially when you want to use observational data to make consequential decisions, like whether or not to continue a multi-billion dollar federal program or mandate state-wide reductions in class size.
 
-
-
 ## A Taxonomy of Specification Problems 
 
 In CPP 523 you were introduced to the Seven Sins of Regression - issues that commonly plague cross-sectional models and prevent us from using observational data for causal inference. 
@@ -576,10 +363,6 @@ We will introduce approaches to:
 * Outliers
 * Group Bias 
 
-
-
-
-
 ## Variable Skew
 
 It is common to have data that is not normally distributed, especially in the social sciences. Variables that have a high level of skew or kurtosis can cause problems with inferential statistics by biasing slopes or inflating standard errors. 
@@ -587,8 +370,6 @@ It is common to have data that is not normally distributed, especially in the so
 There are formal tests for skew, but the easiest way to diagnose the problem is by visualizing distributions using histograms or box and whisker plots. 
 
 Let's start by looking at two of the census variables before and after log transformations: 
-
-
 
 ```{r, fig.height=4}
 par( mfrow=c(1,2) )
@@ -604,9 +385,7 @@ hist( log(d$p.vacant+1), breaks=50, col="gray20", border="white",
       yaxt="n", xlab="", ylab="", main="Vacancy Rate (logged)")
 ```
 
-
 We know that bell-shaped curves are typically preferable, but it's not clear how that helps when looking at a single variable. The issues are clearer when looking at the relationship between two skewed variables: 
-
 
 ```{r, fig.height=4}
 log.p.vacant <- log10( d$p.vacant + 1 )
@@ -629,8 +408,6 @@ We have now greatly strenghtened the relationship between these variables:
 cor( d$p.vacant, d$pov.rate, use="pairwise.complete" )
 cor( log.p.vacant, log.pov.rate, use="pairwise.complete" )
 ```
-
-
 
 ## Log Transformations 
 
@@ -693,7 +470,6 @@ jplot( log2(price), quality, xlim=c(1,6),
 Returning to our census variables, when we look at the relationship between variables in the scatterplot we see that a lot of the data clusters in the lower left hand corner of the scatterplots, which is a sign of skew:
 
 
-
 ```{r, fig.height=10}
 # create subset to visualize in correlation matrix 
 d2 <- select( d, mhv.growth, p.vacant,  p.prof,  pov.rate, p.unemp )
@@ -705,9 +481,6 @@ d3 <- sample_n( d2, 10000 ) %>% na.omit()
 # correlation plots
 pairs( d3, upper.panel=panel.cor, lower.panel=panel.smooth )
 ```
-
-
-
 
 After applying log transformations note that the bivariate correlations increase except for relationship between MHV and (mhv.growth) vacancy rates (p.vacant):
 
@@ -736,18 +509,12 @@ jplot( d3$p.vacant, d3$mhv.growth, ylim=c(-50,100),
        lab1="Vacancy Rates", lab2="MHV Growth" )
 ```
 
-
 It is likely an inflated correlation because of the handful of outliers. Does the graph look familiar? Recall the plot on the right from Anscombe's Quartet: 
 
 ![](images/spurious-correlations.png)
 
 
 So fixing skew made the correlation weaker, but represents a case of mitigating a spurious correlation that was caused by outliers in the data. 
-
-
-
-
-
 
 ## Multicollinearity
 
@@ -767,9 +534,6 @@ In our case, perhaps we are interested in whether economically distressed tracts
 
 Take this example where we try to include both poverty rate and unemployment. A sign of multicollinarity is when both coefficients get smaller and the standard errors get bigger when the two variables are included in the same model (model 3 here). 
 
-
-
-
 ```{r, results="asis"}
 reg.data <- d
 
@@ -784,7 +548,7 @@ m3 <- lm( mhv.growth ~  pov.rate + p.unemp, data=reg.data )
 
 
 stargazer( m1, m2, m3, 
-           type=s.type, digits=2,
+           type=S_TYPE, digits=2,
            omit.stat = c("rsq","f") )
 ```
 
@@ -815,8 +579,6 @@ If you have high multicollinearity and you want to interpret the variables then:
 1. Select which variable you believe best captures the theory / hypothesis or the one you belive to be the best measure of the underlying construct. 
 2. Combine the variables into a single scale or index. Use factor analysis (preferred option) or normalize variables and select a set that generates a reliable metric like you have done in a previous lab. 
 
-
-
 ## Group Structure
 
 When building models it is important to think about whether there are groups in the data that would influence the outcome. You will cover this topic in the lecture on [Fixed Effect Models](https://ds4ps.org/pe4ps-textbook/docs/p-040-fixed-effects.html) in CPP 525. 
@@ -846,7 +608,6 @@ abline( h=seq(0,15,1), lty=3, col=gray(0.5,0.3) )
 axis( side=4, las=1 )
 
 ```
-
 
 We know that the health of the city in 2000 and the changes that occur at the metro level between 2000 and 2010 will impact all census tracts in the city. We can see the metro-level clustering in a plot:
 
@@ -962,7 +723,7 @@ m2 <- lm( mhv.growth ~ p.unemp + metro.mhv.growth, data=d.reg )
 m3 <- lm( mhv.growth ~ p.unemp + cbsa, data=d.reg )
 
 stargazer( m1, m2, m3, 
-           type=s.type, digits=2,
+           type=S_TYPE, digits=2,
            omit.stat = c("rsq","f"),
            omit="cbsa",
            add.lines = list(c("Metro Fixed Effects:", "NO", "NO","YES")) )
@@ -972,12 +733,6 @@ stargazer( m1, m2, m3,
 Note that model 2 and model 3 produce similar slopes for unemployment, similar R-squares, and similar standard error of the regression (labeled Residual Std. Error here). Recall that we can run a fixed-effect model by demeaning our data using group-level means. Adding a metro-level control will achieve a similar result.
 
 The metro-level fixed effect is preferable because it will anchor the dependent variable as well. But when not possible adding a group-level mean of the dependent variable is a feasible alternative. 
-
-
-
-
-
-
 
 ```{r, results="asis", eval=F, echo=F}
 d.reg <- d
@@ -997,12 +752,11 @@ m2 <- lm( mhv.growth ~ p.unemp + metro.mhv.growth, data=d.reg )
 m3 <- lm( mhv.growth ~ p.unemp + cbsa, data=d.reg )
 
 stargazer( m1, m2, m3, 
-           type=s.type, digits=2,
+           type=S_TYPE, digits=2,
            omit.stat = c("rsq","f"),
            omit="cbsa",
            add.lines = list(c("Metro Fixed Effects:", "NO", "NO","YES")) )
 ```
-
 
 
 ```{r, eval=F, echo=F}
@@ -1072,18 +826,6 @@ d2 <-
 
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
 <br>
 <br>
 
@@ -1091,11 +833,6 @@ d2 <-
 
 <br>
 <br>
-
-
-
-
-
 
 <style>
 blockquote {
@@ -1106,4 +843,3 @@ blockquote {
 }
 
 </style>
-
