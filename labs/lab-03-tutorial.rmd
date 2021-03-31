@@ -92,15 +92,11 @@ The following chunks depend on you having clean data in your `data/rodeo` folder
 
 To re-run the tutorial locally, follow these steps:
 
-1. Open a blank text file in RStudio by going to `File` --> `New File` --> `Text File`.
-2. [Copy the raw `labs/utilities.R` file](utilities.R);
-3. Paste the `.R` code into the blank text file.
-4. Save the blank test file in `labs/wk03/utilities.R`.
-5. Open a blank text file in RStudio by going to `File` --> `New File` --> `Text File`.
-6. [Copy the raw `labs/project_data_steps.R` file](project_data_steps.R);
-7. Paste the `.R` code into the blank text file.
-8. Save the blank test file in `labs/wk03/project_data_steps.R`.
-9. Run the newly created [`labs/project_data_steps.R`](project_data_steps.R) file to produce all of the clean data files within `data/rodeo`.
+1. [Download a local copy of the `labs/utilities.R` file](utilities.R);
+2. Save the file as `labs/wk03/utilities.R`.
+3. [Download a local copy the `labs/project_data_steps.R` file](project_data_steps.R);
+4. Save the file as `labs/wk03/project_data_steps.R`.
+5. Select all the lines within the `labs/wk03/project_data_steps.R` and run them all to produce all of the clean data files within `data/rodeo`.
 
 ```{r}
 # note: please do not use static file paths
