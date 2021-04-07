@@ -61,7 +61,7 @@ Explain your findings to a general audience.
 * your separate `.R` file that stores your data processing steps
     + You do not have to call it `utilities.R` anymore, feel free to call it whatever you like.
 * your knitted RMD file that answers the questions posed above.
-     + If your RMD file looks exactly like the [tutorial](lab-04-instructions.html), you will not get full credit.
+     + If your RMD file looks exactly like the [tutorial](lab-04-tutorial.html), you will not get full credit.
      + This is because the tutorial is meant to show you what the data preprocessing steps should look like; not where they should live (which is in a separate `.R` file).
      + This tutorial also has **extra material meant to teach you concepts**. The non technical audience does not need to see this information so exclude it from your work when you submit your lab.
      + **You need to use `import::here()` function and import specific objects** rather than doing all of your data processing within the `.rmd` file. If you need a tutorial on how to use this, please see the ["Project Data Steps" tutorial](PROJECT-DATA-STEPS.html).

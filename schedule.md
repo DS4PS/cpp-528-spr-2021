@@ -238,7 +238,8 @@ Submit Button - <a class="uk-button uk-button-primary" href="{{page.canvas.assig
 <br><br>
 <a class="uk-button uk-button-default" style="width:200px" href="../discuss/yellowdig-05">YELLOWDIG TOPIC</a>
 <br><br>
-<a class="uk-button uk-button-default" style="width:200px" href="../labs/lab-05/">LAB</a>
+<a class="uk-button uk-button-default" style="width:200px" href="../labs/lab-05-tutorial.html">LAB TUTORIAL</a>
+<a class="uk-button uk-button-default" style="width:200px" href="../labs/lab-05-instructions.html">LAB</a>
 
 ---
 
