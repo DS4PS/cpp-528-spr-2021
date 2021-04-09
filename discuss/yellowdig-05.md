@@ -29,11 +29,11 @@ Low Income Housing Tax Credits (LIHTC) are one of the primary policy instruments
 
 <br>
 
-At some point in this project you might pause and wonder, of [all of the possible mechanisms for catalyzing economic development](articles/revitalization/Revitalizing_Inner_City_Neighborhoods.pdf), why are we using tax credits, and do they really work? 
+At some point in this project you might pause and wonder, of [all of the possible mechanisms for catalyzing economic development](../../articles/revitalization/Revitalizing_Inner_City_Neighborhoods.pdf), why are we using tax credits, and do they really work? 
 
 Even more weird, the money does not even go to the neighborhoods in need. The credits are claimed by intermediaries, whose job is then to convince others to invest in the neighborhoods. 
 
-One convincing argument is that if cities tried to directly invest in distressed neighborhoods they would likely run out of resources before achieving impact. Alternatively, if tax credits are structured correctly every one dollar the government spends can bring five or ten dollars of private investement to a community. That doesn't guarantee the investments are going to the right projects or benefitting the people in need, but it is at least a provacative story proponents can tell. 
+One convincing argument is that if cities tried to directly invest in distressed neighborhoods they would likely run out of resources before achieving impact. Alternatively, if tax credits are structured correctly every one dollar the government spends can bring five or ten dollars of private investment to a community. That doesn't guarantee the investments are going to the right projects or benefiting the people in need, but it is at least a provocative story proponents can tell. 
 
 The mystery is what makes this case study so interesting. Tax credits have potential to make a big impact, or the potential to waste a lot of money. 
 
@@ -50,9 +50,9 @@ But it's not the only issue. Consider the Frontline news story on some recent fr
 
 Skim the following articles on how to best structure projects to help distressed neighborhoods: 
 
-1. What Works Collaborative (2012): [Building Successful Neighborhoods](articles/revitalization/building-successful-neighborhoods.pdf)  
-1. Lincoln Institute (2008): [People or Place? Revisiting the Who Versus the Where of Urban Development](articles/revitalization/people-or-place-revisiting-the-debate.pdf)  
-1. Burnette (2017): [Predicting Gentrification](articles/revitalization/predicting-revitalization.pdf)  
+1. What Works Collaborative (2012): [Building Successful Neighborhoods](../../articles/revitalization/building-successful-neighborhoods.pdf)  
+1. Lincoln Institute (2008): [People or Place? Revisiting the Who Versus the Where of Urban Development](../../articles/revitalization/people-or-place-revisiting-the-debate.pdf)  
+1. Burnette (2017): [Predicting Gentrification](../../articles/revitalization/predicting-revitalization.pdf)  
 
 
 <br>
