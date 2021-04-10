@@ -15,7 +15,7 @@ image-width: 150px
 
 Make sure to review the project rubric to ensure you have included all of the necessary components: 
 
-[Grading Rubric](../project/project-rubric.pdf)
+[Grading Rubric](../project/project_rubric.html)
 
 Submit the link to your GitHub site via Canvas.
 
