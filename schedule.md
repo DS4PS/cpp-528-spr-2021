@@ -23,6 +23,7 @@ labs:
   lab-03:  'Friday, March 30'
   lab-04:  'Tuesday, April 6'
   lab-05:  'Tuesday, April 13'
+  lab-06:  'Tuesday, April 20'
   
 videos: 
   vid-01: 'https://www.youtube.com/embed/uQxRUoqnRtc'
@@ -273,7 +274,7 @@ Submit Button - <a class="uk-button uk-button-primary" href="{{page.canvas.assig
 <br><br>
 <a class="uk-button uk-button-default" style="width:200px" href="../discuss/yellowdig-06">YELLOWDIG TOPIC</a>
 <br><br>
-<a class="uk-button uk-button-default" style="width:200px" href="../labs/lab-06/">LAB</a>
+<a class="uk-button uk-button-default" style="width:200px" href="../labs/lab-06-instructions.html">LAB</a>
 
 ---
 
