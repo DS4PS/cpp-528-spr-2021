@@ -305,7 +305,7 @@ Submit Button - <a class="uk-button uk-button-primary" href="{{page.canvas.assig
 <br><br>
 <a class="uk-button uk-button-default" style="width:200px" href="../discuss/yellowdig-07">YELLOWDIG TOPIC</a>
 <br><br>
-<a class="uk-button uk-button-default" style="width:200px" href="../labs/lab-07/">GRADING RUBRIC</a>
+<a class="uk-button uk-button-default" style="width:200px" href="../project/project_rubric.html">GRADING RUBRIC</a>
 
 ---
 
@@ -327,30 +327,7 @@ Submit Button - <a class="uk-button uk-button-primary" href="{{page.canvas.assig
 <br>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
-
-
-
-
 
 
 <style> 
