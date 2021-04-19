@@ -485,17 +485,12 @@ d %>%
 
 The original merged dataset we saved as **d.full** so we don't need to reload it:
 
-```{r}
-d2 <- d.full
-```
-
-
 Recall our data steps thus far: 
 
 ```{r}
 # adjust 2000 home values for inflation 
-mhv.00 <- d2$mhmval00 * 1.28855  
-mhv.10 <- d2$mhmval12
+mhv.00 <- d.full$mhmval00 * 1.28855  
+mhv.10 <- d.full$mhmval12
 
 mhv.change <- mhv.10 - mhv.00
 
@@ -509,10 +504,10 @@ pct.change <- 100 * ( mhv.change / mhv.00 )
 summary( pct.change )
 
 
-d2$mhv.00 <- mhv.00
-d2$mhv.10 <- mhv.10
-d2$mhv.change <- mhv.change
-d2$pct.change <- pct.change
+d.full$mhv.00 <- mhv.00
+d.full$mhv.10 <- mhv.10
+d.full$mhv.change <- mhv.change
+d.full$pct.change <- pct.change
 ```
 
 
@@ -531,7 +526,7 @@ head( vars )
 
 
 ```{r}
-d2 <- select( d2, 
+d3 <- select( d.full, 
              
              tractid, cbsa, cbsaname,            # ids / units of analysis
              
@@ -555,8 +550,8 @@ d2 <- select( d2,
           ) # end select
 
 
-d2 <- 
-  d2 %>%
+d3 <- 
+  d3 %>%
   mutate( 
           # 2000 variables
           p.white.00 = 100 * nhwht00 / pop00.x,
@@ -584,8 +579,8 @@ d2 <-
 
 
 ```{r}
-d2 <-
-  d2 %>%
+d3 <-
+  d3 %>%
   group_by( cbsaname ) %>%
   mutate( metro.mhv.pct.00 = ntile( mhv.00, 100 ),
           metro.mhv.pct.10 = ntile( mhv.10, 100 ),
@@ -606,7 +601,7 @@ Descriptive Statistics of Change Variables
 
 ```{r}
 d3 <-           
-  d2 %>%
+  d3 %>%
   select( c( "tractid", "cbsa", "cbsaname",
              "mhv.00", "mhv.10", "mhv.change","pct.change",
           "p.white.00", "p.black.00", "p.hisp.00", "p.asian.00", 
