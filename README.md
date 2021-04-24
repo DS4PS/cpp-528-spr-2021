@@ -22,7 +22,7 @@ Thanks to the [`renv`](https://rstudio.github.io/renv/index.html) package, you c
 
 ```r
 # restore a project's dependencies from the renv.lock file (located in the root directory)
-here::here(renv::restore())
+renv::restore(here::here())
 ```
 
 For more context, here's what happens under the hood when [`renv::restore()`](https://rstudio.github.io/renv/reference/restore.html#library) is called:
