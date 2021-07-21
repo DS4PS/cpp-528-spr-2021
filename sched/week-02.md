@@ -77,6 +77,8 @@ As we all know, bad input inevitably leads to bad output. Therefore no matter wh
 
 **Reference Material:**
 
+Jenny Bryan has a great presentation on the power of naming conventions for files: [Naming Things](https://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf). 
+ 
 Note that the name uses the phrase "for data mining", but it is a general framework for data science projects that was developed when "data mining" was a popular term used to describe an emerging field. In the metaphor the data is the rich medium that analysts mine for insights about business processes. The term has fallen out of favor because mining sounds atheoretical. Computer scientists were criticized for developing algorithms that can detect patterns and make predictions without any understanding of the processes or contexts, often leading to ethically questionable recommendations or problematic recommendations. The phrase "data science" was adopted to convey that there is a method to the madness. The CRISP-DM process applies broadly to most data science projects. 
 
 For a slightly more extensive list of tasks at each phase, see: 
